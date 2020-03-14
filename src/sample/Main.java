@@ -17,7 +17,10 @@ public class Main extends Application {
         primaryStage.setTitle("Bejelentkezés");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+        //Most elvileg belekommenteltem -- Gera
 
+
+        
     }
 
     public static void main(String[] args) {
