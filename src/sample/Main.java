@@ -20,7 +20,7 @@ public class Main extends Application {
         //Most elvileg belekommenteltem -- Gera
 
 
-        
+
     }
 
     public static void main(String[] args) {
