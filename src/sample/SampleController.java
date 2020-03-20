@@ -5,6 +5,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
+import java.util.HashMap;
+
+
 public class SampleController {
 
 
@@ -12,15 +15,20 @@ public class SampleController {
     public PasswordField pw;
     public TextField user;
 
-    static String adminUser = "admin", adminPassword = "admin";
+    static HashMap<String, String> userpass = new HashMap<>();
 
     public void login(ActionEvent actionEvent) {
-        if(user.getText().equals(adminUser))
+
+        String username=user.getText();
+        String password=pw.getText();
+
+        if(userpass.containsKey(username))
         {
-            if(pw.getText().equals(adminPassword)){
+
+           if(userpass.get(username).equals(password)){
                 info.setText("Sikeres bejelentkezés!");
-            }
-            else {
+           }
+           else {
                 info.setText("Hibás jelszó!");
             }
         }
