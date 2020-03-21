@@ -6,9 +6,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+
 public class Main extends Application {
-
-
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -16,11 +15,6 @@ public class Main extends Application {
         primaryStage.setTitle("Bejelentkezés");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
-        //Most elvileg belekommenteltem -- Gera
-
-
-
-
     }
 
     public static void main(String[] args) {
