@@ -33,10 +33,6 @@ public class RegisterForm extends JFrame {
                 {
                     hiba.setText("Van ilyen regisztralt neptunkod");
                 }else{
-                    if (SampleController.oktazon.contains(oktazon.getText()))
-                    {
-                        hiba.setText("Van ilyen oktatasi azonosito a rendszerben");
-                    }else
                     {
                         String password1 = new String(elsojelszo.getPassword());
                         String password2 = new String(masodikjelszo.getPassword());

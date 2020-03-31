@@ -1,10 +1,14 @@
 package sample;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -22,9 +26,9 @@ public class SampleController {
     Scene scene1;
 
     static HashMap<String, String> userpass = new HashMap<>();
-    static List<String> oktazon=new ArrayList<String>();
+    static HashMap<String, String> userRole = new HashMap<>();
 
-    public void login(ActionEvent actionEvent) {
+    public void login(ActionEvent actionEvent) throws IOException {
 
         String username=user.getText();
         String password=pw.getText();
@@ -33,8 +37,17 @@ public class SampleController {
         {
 
            if(userpass.get(username).equals(password)){
-                info.setText("Sikeres bejelentkezés!");
-           }
+                if (userRole.get(username).equals("2") || userRole.get(username).equals("3")) {
+                    Parent p = FXMLLoader.load(getClass().getResource("mainmenu.fxml"));
+                    Scene s = new Scene(p);
+
+                    //stage információ
+                    Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+
+                    window.setScene(s);
+                    window.show();
+                }
+        }
            else {
                 info.setText("Hibás jelszó!");
             }

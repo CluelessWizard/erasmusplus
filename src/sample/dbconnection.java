@@ -20,21 +20,21 @@ public class dbconnection {
             Class.forName("com.mysql.cj.jdbc.Driver");
             conn=DriverManager.getConnection(url,user,pass);
             st=conn.createStatement();
-            rs=st.executeQuery("select * from erasmusdb.hallgato");
+            rs=st.executeQuery("select * from erasmusdb.users");
 
-            String username,password,oktazonosito;
-            List<String> tmp=new ArrayList<String>();
+            String username,password,Role;
             HashMap<String, String> upcombo = new HashMap<>();
+            HashMap<String, String> userRole = new HashMap<>();
             while(rs.next())
             {
-                username=rs.getString("Neptun");
-                password=rs.getString("Jelszo");
+                username=rs.getString("neptun");
+                password=rs.getString("password");
                 upcombo.put(username,password);
-                oktazonosito=rs.getString("OktAzon");
-                tmp.add(oktazonosito);
+                Role=rs.getString("role");
+                userRole.put(username,Role);
             }
             SampleController.userpass=upcombo;
-            SampleController.oktazon=tmp;
+            SampleController.userRole=userRole;
         }catch(Exception ex){
             System.out.println("Error"+ex);
         }
