@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane id="mainmenu" fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.mainmenu">
+    <children>
+        <MenuBar id="myMenuBar" layoutY="2.0" prefHeight="25.0" prefWidth="600.0">
+            <menus>
+                <Menu mnemonicParsing="false" text="Főoldal" />
+                <Menu id="students" mnemonicParsing="false" text="Hallgatók">
+               <items>
+                  <MenuItem id="mymenuitem" mnemonicParsing="false" onAction="#hallgatokmegnyit" text="Keresés" />
+               </items></Menu>
+                <Menu mnemonicParsing="false" text="valamilesz" />
+            <Menu mnemonicParsing="false" text="Valamilesz2">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Action 1" />
+              </items>
+            </Menu>
+            </menus>
+        </MenuBar>
+    </children>
+</Pane>

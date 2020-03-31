@@ -1,14 +1,16 @@
 package sample;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 public class dbconnection {
+    public static Connection getConn() throws SQLException {
+        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/erasmusdb","root","");
+        return connection;
+    }
+
     private static Connection conn;
     public static Statement st;
     private static ResultSet rs;

@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.collections.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="722.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="722.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Listazas">
    <children>
       <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="600.0">
         <menus>
@@ -32,34 +29,19 @@
             </Menu>
         </menus>
       </MenuBar>
-      <Button layoutX="646.0" layoutY="46.0" mnemonicParsing="false" text="Keres" />
-      <TextField layoutX="474.0" layoutY="46.0" />
-      <Label layoutX="402.0" layoutY="50.0" text="Neptun:" />
-      <Label layoutX="402.0" layoutY="81.0" text="Név:" />
-      <TextField layoutX="474.0" layoutY="77.0" />
-      <Button layoutX="646.0" layoutY="77.0" mnemonicParsing="false" text="Keres" />
-      <ComboBox id="rendezes" fx:id="rendezes" layoutX="105.0" layoutY="77.0" prefHeight="25.0" prefWidth="195.0">
-          <items>
-              <FXCollections fx:factory="observableArrayList">
-                  <String fx:value="Név szerint csökkenő" />
-                  <String fx:value="Név szerint növekvő" />
-                  <String fx:value="Neptun szerint csökkenő" />
-                  <String fx:value="Neptun szerint növekvő" />
-              </FXCollections>
-          </items>
-              </ComboBox>
-      <Label layoutX="12.0" layoutY="76.0" prefHeight="27.0" prefWidth="88.0" text="Rendezés:" textAlignment="CENTER">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <TableView layoutX="25.0" layoutY="135.0" prefHeight="216.0" prefWidth="673.0">
+      <Button layoutX="244.0" layoutY="65.0" mnemonicParsing="false" text="Keres" />
+      <TextField layoutX="76.0" layoutY="65.0" />
+      <Label layoutX="25.0" layoutY="69.0" text="Neptun:" />
+      <Label layoutX="404.0" layoutY="69.0" text="Név:" />
+      <TextField layoutX="469.0" layoutY="65.0" />
+      <Button layoutX="634.0" layoutY="65.0" mnemonicParsing="false" text="Keres" />
+      <TableView id="table" fx:id="table" layoutX="25.0" layoutY="135.0" prefHeight="216.0" prefWidth="673.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="Neptun" />
-          <TableColumn prefWidth="114.0" text="Név" />
-            <TableColumn prefWidth="98.0" text="Telefon" />
-            <TableColumn prefWidth="169.0" text="Email" />
-            <TableColumn prefWidth="216.0" text="Szak" />
+          <TableColumn fx:id="neptun" prefWidth="75.0" text="Neptun" />
+          <TableColumn fx:id="nev" prefWidth="114.0" text="Név" />
+            <TableColumn fx:id="telefon" prefWidth="98.0" text="Telefon" />
+            <TableColumn fx:id="email" prefWidth="169.0" text="Email" />
+            <TableColumn fx:id="szak" prefWidth="216.0" text="Szak" />
         </columns>
       </TableView>
    </children>
