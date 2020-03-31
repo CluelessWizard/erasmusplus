@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.HashMap;
 
 
-public class SampleController {
+public class LoginController {
 
 
     public Label info;

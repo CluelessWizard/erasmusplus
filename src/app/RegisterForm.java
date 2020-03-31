@@ -29,7 +29,7 @@ public class RegisterForm extends JFrame {
         regbutton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (SampleController.userpass.containsKey(neptun.getText()))
+                if (LoginController.userpass.containsKey(neptun.getText()))
                 {
                     hiba.setText("Van ilyen regisztralt neptunkod");
                 }else{
@@ -40,7 +40,7 @@ public class RegisterForm extends JFrame {
                             hiba.setText("A ket jelszo nem egyezik");
                         else
                         {
-                            SampleController.userpass.put(neptun.getText(),password1);
+                            LoginController.userpass.put(neptun.getText(),password1);
                             JOptionPane.showMessageDialog(null,"Sikeres regisztracio!");
                             dispose();
                         }

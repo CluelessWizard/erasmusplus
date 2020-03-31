@@ -33,8 +33,8 @@ public class dbconnection {
                 Role=rs.getString("role");
                 userRole.put(username,Role);
             }
-            SampleController.userpass=upcombo;
-            SampleController.userRole=userRole;
+            LoginController.userpass=upcombo;
+            LoginController.userRole=userRole;
         }catch(Exception ex){
             System.out.println("Error"+ex);
         }
