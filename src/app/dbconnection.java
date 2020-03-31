@@ -1,9 +1,7 @@
-package sample;
+package app;
 
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 public class dbconnection {
     public static Connection getConn() throws SQLException {
