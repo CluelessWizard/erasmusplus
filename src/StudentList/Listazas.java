@@ -1,11 +1,13 @@
 package StudentList;
 
+import Applications.Jelentkezesek;
 import MainMenu.mainmenu;
 import StudentInformation.BovebbInfoController;
 import app.LoginController;
 import app.dbconnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -147,5 +149,12 @@ public class Listazas implements Initializable {
     }
 
 
+    public void mainmenumegnyit(ActionEvent actionEvent) throws IOException {
+        new LoginController().mainmenuopen(actionEvent);
+    }
+
+    public void Jelentkezesekopen(ActionEvent actionEvent) throws IOException {
+        new Jelentkezesek().Jelentkezesopen(actionEvent);
+    }
 
 }

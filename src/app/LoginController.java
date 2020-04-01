@@ -10,6 +10,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.util.HashMap;
 
@@ -36,14 +37,7 @@ public class LoginController {
 
            if(userpass.get(username).equals(password)){
                 if (userRole.get(username).equals("2") || userRole.get(username).equals("3")) {
-                    Parent p = FXMLLoader.load(getClass().getResource("../MainMenu/mainmenu.fxml"));
-                    Scene s = new Scene(p);
-
-                    //stage információ
-                    Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-
-                    window.setScene(s);
-                    window.show();
+                    mainmenuopen(actionEvent);
                 }
         }
            else {
@@ -62,5 +56,16 @@ public class LoginController {
         Stage reg_stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         reg_stage.setScene(reg);
         reg_stage.show();*/
+    }
+
+    public void mainmenuopen(ActionEvent actionEvent) throws IOException {
+        Parent p = FXMLLoader.load(getClass().getResource("../MainMenu/mainmenu.fxml"));
+        Scene s = new Scene(p);
+
+        //stage információ
+        Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+
+        window.setScene(s);
+        window.show();
     }
 }
