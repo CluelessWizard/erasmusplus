@@ -1,4 +1,4 @@
-package app;
+package StudentList;
 
 public class Student {
     private String nev;

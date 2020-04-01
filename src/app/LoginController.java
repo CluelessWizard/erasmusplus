@@ -36,7 +36,7 @@ public class LoginController {
 
            if(userpass.get(username).equals(password)){
                 if (userRole.get(username).equals("2") || userRole.get(username).equals("3")) {
-                    Parent p = FXMLLoader.load(getClass().getResource("mainmenu.fxml"));
+                    Parent p = FXMLLoader.load(getClass().getResource("../MainMenu/mainmenu.fxml"));
                     Scene s = new Scene(p);
 
                     //stage információ
