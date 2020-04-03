@@ -4,12 +4,12 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="485.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.LoginController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="485.0" style="-fx-background-color: #262626;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.LoginController">
    <children>
-      <Label fx:id="userText" layoutX="111.0" layoutY="151.0" text="Felhasználó" />
-      <Label fx:id="pwText" layoutX="111.0" layoutY="183.0" text="Jelszó" />
+      <Label fx:id="userText" layoutX="111.0" layoutY="151.0" text="Felhasználó" textFill="WHITE" />
+      <Label fx:id="pwText" layoutX="111.0" layoutY="183.0" text="Jelszó" textFill="WHITE" />
       <Label fx:id="info" layoutX="195.0" layoutY="313.0" prefHeight="17.0" prefWidth="149.0" textAlignment="CENTER" />
-      <Label layoutX="29.0" layoutY="40.0" text="Erasmus+">
+      <Label layoutX="29.0" layoutY="40.0" text="Erasmus+" textFill="WHITE">
          <font>
             <Font name="System Bold" size="48.0" />
          </font></Label>
@@ -19,4 +19,3 @@
       <PasswordField fx:id="pw" layoutX="196.0" layoutY="179.0" />
    </children>
 </Pane>
-

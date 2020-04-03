@@ -1,5 +1,6 @@
 package app;
 
+import AdminFelulet.adminmenuController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -38,6 +39,9 @@ public class LoginController {
                 if (userRole.get(username).equals("2") || userRole.get(username).equals("3")) {
                     mainmenuopen(actionEvent);
                 }
+               if (userRole.get(username).equals("4")){
+                    new adminmenuController().megnyit(actionEvent);
+               }
         }
            else {
                 info.setText("Hibás jelszó!");
