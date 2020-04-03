@@ -1,12 +1,12 @@
 package MainMenu;
 
-import javafx.fxml.FXML;
+import Applications.Jelentkezesek;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import StudentList.Listazas;
 
 import java.io.IOException;
 
@@ -24,5 +24,9 @@ public class mainmenu {
         window.setScene(s);
         window.show();
     }
-    
+
+    public void Jelentkezesekopen(ActionEvent actionEvent) throws IOException {
+        new Jelentkezesek().Jelentkezesopen(actionEvent);
+    }
+
 }

@@ -2,11 +2,34 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane fx:id="root" prefHeight="400.0" prefWidth="722.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Applications.Jelentkezesek">
     <children>
-        <Button prefHeight="34.0" prefWidth="97.0" text="Főoldal" onAction="#mainmenuopen"/>
-        <Button layoutX="97.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="97.0" text="Hallgatók" onAction="#hallgatokmegnyit"/>
-        <Button layoutX="194.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="97.0" text="Jelentkezések" onAction="#Jelentkezesopen"/>
+        <Button onAction="#mainmenuopen" prefHeight="34.0" prefWidth="97.0" text="Főoldal" />
+        <Button layoutX="97.0" mnemonicParsing="false" onAction="#hallgatokmegnyit" prefHeight="34.0" prefWidth="97.0" text="Hallgatók" />
+        <Button layoutX="194.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="97.0" text="Jelentkezések" />
+        <Label layoutX="10.0" layoutY="40.0" text="Jelentkezések" wrapText="true">
+         <font>
+            <Font name="Arial Black" size="18.0" />
+         </font></Label>
+        <TableView fx:id="table" layoutX="20.0" layoutY="100.0" prefHeight="250.0" prefWidth="550.0">
+            <columns>
+                <TableColumn fx:id="neptun" prefWidth="101.0" text="Neptun" />
+                <TableColumn fx:id="name" prefWidth="150.0" text="Név" />
+                <TableColumn fx:id="application1" prefWidth="98.0" text="Jelentkezés 1" />
+                <TableColumn fx:id="application2" prefWidth="98.0" text="Jelentkezés 2" />
+                <TableColumn fx:id="application3" prefWidth="102.0" text="Jelentkezés 3" />
+            </columns>
+        </TableView>
+        <Button layoutX="604.0" layoutY="220" mnemonicParsing="false" prefHeight="51.0" prefWidth="70.0" text="Elfogad" onAction="#Accept"/>
+        <Button layoutX="604.0" layoutY="300.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="70.0" text="Elutasít" onAction="#Reject"/>
+        <RadioButton fx:id="rb1" layoutX="625.0" layoutY="125.0" mnemonicParsing="false" text="1" >
+            <toggleGroup>
+                <ToggleGroup fx:id="group1" />
+            </toggleGroup>
+        </RadioButton>
+        <RadioButton fx:id="rb2" layoutX="625.0" layoutY="150.0" mnemonicParsing="false" text="2" toggleGroup="$group1"/>
+        <RadioButton fx:id="rb3" layoutX="625.0" layoutY="175.0" mnemonicParsing="false" text="3" toggleGroup="$group1"/>
     </children>
 </AnchorPane>
