@@ -2,7 +2,7 @@
 {
         -fx-background-color:#d0451b;
         -fx-font-family: "Helvetica";
-        -fx-font-size: 13px;
+        -fx-font-size: 12px;
         -fx-text-fill: #ffffff;
         -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.1) , 2, 0.0 , 0 , 1);
         -fx-border-color:#942911;

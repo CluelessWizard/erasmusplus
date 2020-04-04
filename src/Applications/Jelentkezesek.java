@@ -192,7 +192,7 @@ public class Jelentkezesek implements Initializable {
 
         if (oblist.isEmpty())
         {
-            table.setPlaceholder(new Label("Nincsenek hallgatók az adatbázisban"));
+            table.setPlaceholder(new Label("Nincsenek jelentkezések az adatbázisban"));
         }
         else table.setItems(oblist);
 

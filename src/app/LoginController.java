@@ -42,6 +42,7 @@ public class LoginController {
                if (userRole.get(username).equals("4")){
                     new adminmenuController().megnyit(actionEvent);
                }
+
         }
            else {
                 info.setText("Hibás jelszó!");

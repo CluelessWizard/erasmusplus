@@ -8,7 +8,7 @@
    <children>
       <Label fx:id="userText" layoutX="111.0" layoutY="151.0" text="Felhasználó" textFill="WHITE" />
       <Label fx:id="pwText" layoutX="111.0" layoutY="183.0" text="Jelszó" textFill="WHITE" />
-      <Label fx:id="info" layoutX="195.0" layoutY="313.0" prefHeight="17.0" prefWidth="149.0" textAlignment="CENTER" />
+      <Label fx:id="info" layoutX="195.0" layoutY="313.0" prefHeight="17.0" prefWidth="149.0" textAlignment="CENTER" textFill="WHITE" />
       <Label layoutX="29.0" layoutY="40.0" text="Erasmus+" textFill="WHITE">
          <font>
             <Font name="System Bold" size="48.0" />

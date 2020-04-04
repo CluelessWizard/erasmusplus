@@ -32,7 +32,6 @@ public class Listazas implements Initializable {
     @FXML private TableColumn<Student,String> email;
     @FXML private TableColumn<Student,String> szak;
     @FXML ContextMenu cm;
-    @FXML MenuItem mi1;
     @FXML MenuItem mi2;
     @FXML Parent rt;
 
@@ -58,10 +57,6 @@ public class Listazas implements Initializable {
 
     }
 
-    public void Jelentkezesek()
-    {
-
-    }
 
     public void BovebbInformacio(javafx.event.ActionEvent actionEvent) throws IOException, SQLException {
         selectedforedit = table.getSelectionModel().getSelectedItem();
