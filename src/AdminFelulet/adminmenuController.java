@@ -1,5 +1,6 @@
 package AdminFelulet;
 
+import app.LoginController;
 import app.dbconnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -127,6 +128,9 @@ public class adminmenuController implements Initializable {
         new AdminPopups().visszaalitvaMegnyit();
     }
 
+    public void kijelentkezes(ActionEvent actionEvent) throws Exception {
+        new LoginController().megnyit(actionEvent);
+    }
 
 
 }

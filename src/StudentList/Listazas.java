@@ -24,7 +24,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 
-public class Listazas implements Initializable {
+public class Listazas  implements Initializable  {
     @FXML private TableView<Student> table;
     @FXML private TableColumn<Student,String> neptun;
     @FXML private TableColumn<Student,String> nev;
@@ -34,6 +34,7 @@ public class Listazas implements Initializable {
     @FXML ContextMenu cm;
     @FXML MenuItem mi2;
     @FXML Parent rt;
+
 
     static Student selectedforedit;
 
@@ -143,6 +144,12 @@ public class Listazas implements Initializable {
 
     public void Jelentkezesekopen(ActionEvent actionEvent) throws IOException {
         new Jelentkezesek().Jelentkezesopen(actionEvent);
+    }
+
+
+    public void kijelentkezes(ActionEvent actionEvent) throws Exception {
+         new LoginController().megnyit(actionEvent);
+
     }
 
 }

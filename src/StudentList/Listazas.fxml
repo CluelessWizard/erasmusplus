@@ -33,5 +33,6 @@
         </columns>
       </TableView>
       <Button layoutX="194.0" mnemonicParsing="false" onAction="#Jelentkezesekopen" prefHeight="34.0" prefWidth="97.0" stylesheets="@../StyleResources/gombstilus.css" text="Jelentkezések" textFill="WHITE" />
+       <Button layoutX="626.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="97.0" stylesheets="@../StyleResources/gombstilus.css" text="Kijelentkezés" textFill="WHITE" onAction="#kijelentkezes"/>
    </children>
 </Pane>

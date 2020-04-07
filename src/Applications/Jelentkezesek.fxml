@@ -31,5 +31,6 @@
         </RadioButton>
         <RadioButton fx:id="rb2" layoutX="594.0" layoutY="150.0" mnemonicParsing="false" text="Jelentkezés 2" textFill="WHITE" toggleGroup="$group1" />
         <RadioButton fx:id="rb3" layoutX="594.0" layoutY="175.0" mnemonicParsing="false" text="Jelentkezés 3" textFill="WHITE" toggleGroup="$group1" />
+      <Button layoutX="626.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="97.0" stylesheets="@../StyleResources/gombstilus.css" text="Kijelentkezés" textFill="WHITE" onAction="#kijelentkezes"/>
     </children>
 </AnchorPane>

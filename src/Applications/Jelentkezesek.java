@@ -46,6 +46,8 @@ public class Jelentkezesek implements Initializable {
     TableColumn application2;
     @FXML
     TableColumn application3;
+    @FXML
+    private Parent root;
 
     static HallgatoJelentkezesei chosenOne;
     private static Connection con;
@@ -67,8 +69,7 @@ public class Jelentkezesek implements Initializable {
         window.show();
     }
 
-    @FXML
-    private Parent root;
+
 
     public void mainmenuopen(javafx.event.ActionEvent actionEvent) throws IOException {
         new LoginController().mainmenuopen(actionEvent);
@@ -196,5 +197,9 @@ public class Jelentkezesek implements Initializable {
         }
         else table.setItems(oblist);
 
+    }
+
+    public void kijelentkezes(ActionEvent actionEvent) throws Exception {
+        new LoginController().megnyit(actionEvent);
     }
 }

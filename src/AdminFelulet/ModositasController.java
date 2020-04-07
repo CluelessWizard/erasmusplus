@@ -69,7 +69,6 @@ public class ModositasController implements Initializable {
         String EditedName=name.getText();
         String EditedNeptun=neptun.getText();
         String EditedRole=(String)jog.getValue();
-        System.out.println(EditedRole);
         int roleNumber=1;
         if (EditedRole.equals("Ügyintéző")) roleNumber=2;
         else if(EditedRole.equals("Dékán")) roleNumber=3;

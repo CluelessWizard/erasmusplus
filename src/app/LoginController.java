@@ -72,4 +72,17 @@ public class LoginController {
         window.setScene(s);
         window.show();
     }
+
+    public void megnyit(ActionEvent actionEvent) throws IOException {
+
+
+        Parent p = FXMLLoader.load(getClass().getResource("login.fxml"));
+        Scene s = new Scene(p);
+
+        //stage információ
+        Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+
+        window.setScene(s);
+        window.show();
+    }
 }
