@@ -4,11 +4,6 @@ import java.sql.*;
 import java.util.HashMap;
 
 public class dbconnection {
-    public static Connection getConn() throws SQLException {
-        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/erasmusdb","root","");
-        return connection;
-    }
-
     private static Connection conn;
     public static Statement st;
     private static ResultSet rs;
@@ -16,6 +11,14 @@ public class dbconnection {
     private static String user="root",pass="";
 
     public dbconnection(){
+        refresh();
+    }
+
+    public static Connection getConn() throws SQLException {
+        return DriverManager.getConnection("jdbc:mysql://localhost:3306/erasmusdb","root","");
+    }
+
+    public static void refresh(){
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             conn=DriverManager.getConnection(url,user,pass);
@@ -36,7 +39,7 @@ public class dbconnection {
             LoginController.userpass=upcombo;
             LoginController.userRole=userRole;
         }catch(Exception ex){
-            System.out.println("Error"+ex);
+            System.out.println("Error "+ex);
         }
     }
 }

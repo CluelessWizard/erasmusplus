@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.Connection;
 import java.util.HashMap;
 
 
@@ -26,6 +27,20 @@ public class LoginController {
 
     static HashMap<String, String> userpass = new HashMap<>();
     static HashMap<String, String> userRole = new HashMap<>();
+
+    public LoginController(){
+        try {
+            if(dbconnection.getConn() == null){
+                new dbconnection();
+            } else {
+                dbconnection.refresh();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+    }
 
     public void login(ActionEvent actionEvent) throws IOException {
 
@@ -52,7 +67,7 @@ public class LoginController {
             info.setText("Hibás felhasználó!");
         }
     }
-    public void registration(ActionEvent actionEvent) throws IOException {
+    public void registration(ActionEvent actionEvent){
 
         RegisterForm r=new RegisterForm();
        /* Parent registration = FXMLLoader.load(getClass().getResource("register.fxml"));

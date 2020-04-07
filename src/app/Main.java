@@ -18,7 +18,7 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
-        dbconnection connect=new dbconnection();
+        //dbconnection connect=new dbconnection();
         launch(args);
     }
 }
