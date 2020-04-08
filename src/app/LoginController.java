@@ -1,6 +1,8 @@
 package app;
 
 import AdminFelulet.adminmenuController;
+import HallgatoFelulet.OpenFunctions;
+import HallgatoFelulet.StudentMain;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -12,16 +14,27 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.sql.Connection;
 import java.util.HashMap;
 
 
-public class LoginController {
+public class LoginController extends OpenFunctions {
+
 
 
     public Label info;
     public PasswordField pw;
     public TextField user;
+
+    private static String username;
+    private static String password;
+
+    public static String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
 
     Scene scene1;
 
@@ -44,8 +57,8 @@ public class LoginController {
 
     public void login(ActionEvent actionEvent) throws IOException {
 
-        String username=user.getText();
-        String password=pw.getText();
+        username=user.getText();
+        password=pw.getText();
 
         if(userpass.containsKey(username))
         {
@@ -55,8 +68,13 @@ public class LoginController {
                     mainmenuopen(actionEvent);
                 }
                if (userRole.get(username).equals("4")){
-                    new adminmenuController().megnyit(actionEvent);
+                    adminmenuController.megnyit(actionEvent);
                }
+               if (userRole.get(username).equals("1"))
+               {
+                   StudentMain.megnyit(actionEvent);
+               }
+
 
         }
            else {
@@ -67,14 +85,8 @@ public class LoginController {
             info.setText("Hibás felhasználó!");
         }
     }
-    public void registration(ActionEvent actionEvent){
-
-        RegisterForm r=new RegisterForm();
-       /* Parent registration = FXMLLoader.load(getClass().getResource("register.fxml"));
-        Scene reg = new Scene(registration);
-        Stage reg_stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        reg_stage.setScene(reg);
-        reg_stage.show();*/
+    public void registration(ActionEvent actionEvent) throws IOException {
+        RegController.megnyit(actionEvent);
     }
 
     public void mainmenuopen(ActionEvent actionEvent) throws IOException {
@@ -88,10 +100,10 @@ public class LoginController {
         window.show();
     }
 
-    public void megnyit(ActionEvent actionEvent) throws IOException {
+    public static void megnyit(ActionEvent actionEvent) throws IOException {
 
 
-        Parent p = FXMLLoader.load(getClass().getResource("login.fxml"));
+        Parent p = FXMLLoader.load(LoginController.class.getResource("login.fxml"));
         Scene s = new Scene(p);
 
         //stage információ

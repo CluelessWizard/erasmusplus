@@ -37,15 +37,15 @@ public class adminmenuController implements Initializable {
         return chosenOne;
     }
 
-    @FXML TableColumn neptun,nev,tipus;
+    @FXML TableColumn neptun,nev,tipus,email;
     @FXML TableView table;
 
     public static ObservableList<user> getOblist() {
         return oblist;
     }
 
-    public void megnyit(ActionEvent actionEvent) throws IOException {
-        Parent p = FXMLLoader.load(getClass().getResource("adminmenu.fxml"));
+    public static void megnyit(ActionEvent actionEvent) throws IOException {
+        Parent p = FXMLLoader.load(adminmenuController.class.getResource("adminmenu.fxml"));
         Scene s = new Scene(p);
 
         //stage információ
@@ -77,12 +77,13 @@ public class adminmenuController implements Initializable {
                 else if (rs.getString("role").equals("2")) tmp="Ügyintéző";
                 else if (rs.getString("role").equals("3")) tmp="Dékán";
                 else tmp="Admin";
-                oblist.add(new user(rs.getString("neptun"),rs.getString("name"),tmp));
+                oblist.add(new user(rs.getString("neptun"),rs.getString("name"),tmp,rs.getString("email")));
             }
 
             neptun.setCellValueFactory(new PropertyValueFactory<>("neptun"));
             nev.setCellValueFactory(new PropertyValueFactory<>("nev"));
             tipus.setCellValueFactory(new PropertyValueFactory<>("role"));
+            email.setCellValueFactory(new PropertyValueFactory<>("email"));
 
         } catch (SQLException e) {
             e.printStackTrace();

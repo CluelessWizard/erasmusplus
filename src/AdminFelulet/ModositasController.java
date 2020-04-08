@@ -23,7 +23,7 @@ public class ModositasController implements Initializable {
 
 
     @FXML
-    TextField name,neptun;
+    TextField name,neptun,email;
     @FXML
     ChoiceBox jog;
     @FXML
@@ -56,6 +56,7 @@ public class ModositasController implements Initializable {
         name.setText(chosenOne.getNev());
         neptun.setText(chosenOne.getNeptun());
         jog.setValue(chosenOne.getRole());
+        email.setText(chosenOne.getEmail());
 
         try {
             con = dbconnection.getConn();
@@ -69,12 +70,19 @@ public class ModositasController implements Initializable {
         String EditedName=name.getText();
         String EditedNeptun=neptun.getText();
         String EditedRole=(String)jog.getValue();
+        String EditedEmail=email.getText();
+
         int roleNumber=1;
         if (EditedRole.equals("Ügyintéző")) roleNumber=2;
         else if(EditedRole.equals("Dékán")) roleNumber=3;
         else if(EditedRole.equals("Admin")) roleNumber=4;
 
-        con.createStatement().executeUpdate("UPDATE users SET name='"+EditedName+"',neptun='"+EditedNeptun+"',role="+roleNumber+" WHERE neptun='"+chosenOne.getNeptun()+"'");
+        if (chosenOne.getRole().equals("Hallgató") && roleNumber!=1)
+        {
+            con.createStatement().executeUpdate("DELETE FROM students WHERE neptun='"+chosenOne.getNeptun()+"'");
+        }
+
+        con.createStatement().executeUpdate("UPDATE users SET name='"+EditedName+"',neptun='"+EditedNeptun+"',role="+roleNumber+",email='"+EditedEmail+"' WHERE neptun='"+chosenOne.getNeptun()+"'");
 
         ObservableList<user> oblist;
         oblist=adminmenuController.getOblist();
@@ -88,6 +96,8 @@ public class ModositasController implements Initializable {
                 s.setRole(EditedRole);
             }
         }
+
+
 
         try {
             new adminmenuController().update();

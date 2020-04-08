@@ -1,12 +1,21 @@
 package AdminFelulet;
 
 public class user {
-    private String neptun,nev,role;
+    private String neptun,nev,role,email;
 
-    public user(String neptun, String nev, String role) {
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public user(String neptun, String nev, String role, String email) {
         this.neptun = neptun;
         this.nev = nev;
         this.role = role;
+        this.email=email;
     }
 
     public String getNeptun() {

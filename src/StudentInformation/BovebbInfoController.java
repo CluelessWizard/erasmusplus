@@ -59,7 +59,7 @@ public class BovebbInfoController implements Initializable {
 
         try {
             con=app.dbconnection.getConn();
-            rs=con.createStatement().executeQuery("select * from students");
+            rs=con.createStatement().executeQuery("select * from students s JOIN users u ON u.neptun=s.neptun");
 
             adatok();
 
@@ -76,7 +76,7 @@ public class BovebbInfoController implements Initializable {
                     fokozat.setText("Bsc");
                 } else if (s.getFokozat() == "2") {
                     fokozat.setText("Msc");
-                } else fokozat.setText("Phd");
+                } else if (s.getFokozat() == "3") fokozat.setText("Phd");
                 szuldate.setText(s.getSzuldate());
                 szulhely.setText(s.getSzulhely());
                 telefon.setText(s.getTelefon());

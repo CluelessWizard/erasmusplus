@@ -72,10 +72,11 @@ public class Listazas  implements Initializable  {
 
         try {
             Connection con= dbconnection.getConn();
-            ResultSet rs=con.createStatement().executeQuery("select * from students");
+            ResultSet rs=con.createStatement().executeQuery("select * from students s JOIN users u ON s.neptun=u.neptun");
 
             while (rs.next())
             {
+                if (rs.getString("role").equals("1"))
                 oblist.add(new Student(rs.getString("name"),rs.getString("neptun"),rs.getString("mobile"),rs.getString("email"),rs.getString("degree")));
             }
 

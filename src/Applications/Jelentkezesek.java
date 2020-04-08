@@ -132,14 +132,17 @@ public class Jelentkezesek implements Initializable {
 
         try {
             con = dbconnection.getConn();
-            rs = con.createStatement().executeQuery("select * from students");
+            rs = con.createStatement().executeQuery("select * from users");
             university1 = con.createStatement().executeQuery("select * from students s JOIN Applications a ON s.applicationID1=a.ID JOIN institutions i ON i.ID=a.institutionID");
             university2 = con.createStatement().executeQuery("select * from students s JOIN Applications a ON s.applicationID2=a.ID JOIN institutions i ON i.ID=a.institutionID");
             university3 = con.createStatement().executeQuery("select * from students s JOIN Applications a ON s.applicationID3=a.ID JOIN institutions i ON i.ID=a.institutionID");
 
+            ObservableList<HallgatoJelentkezesei> tmp = FXCollections.observableArrayList();
+            
+            
             while (rs.next())
             {
-                oblist.add(new HallgatoJelentkezesei(rs.getString("neptun"),rs.getString("name"),"nincs",
+                tmp.add(new HallgatoJelentkezesei(rs.getString("neptun"),rs.getString("name"),"nincs",
                         "nincs","nincs"));
             }
 
@@ -147,7 +150,7 @@ public class Jelentkezesek implements Initializable {
 
             while (university1.next()) {
 
-                oblist.get(i).setEgyetem1(university1.getString("i.name"));
+                tmp.get(i).setEgyetem1(university1.getString("i.name"));
                 i++;
             }
 
@@ -155,7 +158,7 @@ public class Jelentkezesek implements Initializable {
 
             while (university2.next()) {
 
-                oblist.get(i).setEgyetem2(university2.getString("i.name"));
+                tmp.get(i).setEgyetem2(university2.getString("i.name"));
                 i++;
             }
 
@@ -163,16 +166,16 @@ public class Jelentkezesek implements Initializable {
 
             while (university3.next()) {
 
-                oblist.get(i).setEgyetem3(university3.getString("i.name"));
+                tmp.get(i).setEgyetem3(university3.getString("i.name"));
                 i++;
 
             }
 
-            for (int j=0;j<oblist.size();j++)
+            for (HallgatoJelentkezesei s:tmp)
             {
-                if (oblist.get(j).getEgyetem1() == "nincs" && oblist.get(j).getEgyetem2() == "nincs" && oblist.get(j).getEgyetem3()=="nincs")
+                if (!(s.getEgyetem1().equals("nincs") && s.getEgyetem2().equals("nincs") && s.getEgyetem3().equals("nincs")))
                 {
-                    oblist.remove(oblist.get(j));
+                    oblist.add(s);
                 }
             }
 
@@ -191,11 +194,17 @@ public class Jelentkezesek implements Initializable {
         application2.setCellValueFactory(new PropertyValueFactory<>("egyetem2"));
         application3.setCellValueFactory(new PropertyValueFactory<>("egyetem3"));
 
+
+
         if (oblist.isEmpty())
         {
             table.setPlaceholder(new Label("Nincsenek jelentkezések az adatbázisban"));
         }
-        else table.setItems(oblist);
+
+        else
+        {
+            table.setItems(oblist);
+        }
 
     }
 
