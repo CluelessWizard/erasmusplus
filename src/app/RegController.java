@@ -42,7 +42,7 @@ public class RegController {
 
         while (rs.next())
         {
-            if (rs.getString("neptun").equals(neptun.getText()))
+            if (rs.getString("neptun").equals(neptun.getText().toUpperCase()))
             {
                 notexists=false;
             }
@@ -58,7 +58,7 @@ public class RegController {
             }
             else uzenet.setText("A két jelszó nem egyezik!");
         }
-        else uzenet.setText("Már van ilyen regisztrált Neptunkód!");
+        else uzenet.setText("Már van ilyen regisztrált neptunkód!");
 
     }
 

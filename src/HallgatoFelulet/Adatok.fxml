@@ -36,38 +36,38 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="183.0" layoutY="317.0" text="Nemzetiség:" textFill="WHITE">
+      <Label layoutX="183.0" layoutY="328.0" text="Nemzetiség:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="nationalityField" layoutX="304.0" layoutY="314.0" />
+      <TextField fx:id="nationalityField" layoutX="304.0" layoutY="327.0" />
       <Label layoutX="183.0" layoutY="196.0" text="*Születési hely:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
       <TextField fx:id="birthplaceField" layoutX="305.0" layoutY="194.0" />
-      <Label layoutX="183.0" layoutY="226.0" text="*Születési dátum:" textFill="WHITE">
+      <Label layoutX="183.0" layoutY="226.0" prefHeight="20.0" prefWidth="118.0" text="*Születési dátum:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
       <TextField fx:id="birthdateField" layoutX="305.0" layoutY="224.0" />
-      <Label layoutX="183.0" layoutY="256.0" text="Email:" textFill="WHITE">
+      <Label layoutX="183.0" layoutY="269.0" text="Email:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
       <ChoiceBox fx:id="degreeChoice" layoutX="304.0" layoutY="134.0" prefHeight="25.0" prefWidth="149.0" />
-      <TextField fx:id="emailField" layoutX="305.0" layoutY="254.0" />
-      <Label layoutX="183.0" layoutY="286.0" text="Telefon:" textFill="WHITE">
+      <TextField fx:id="emailField" layoutX="304.0" layoutY="267.0" />
+      <Label layoutX="183.0" layoutY="297.0" text="Telefon:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="telefonField" layoutX="305.0" layoutY="284.0" />
-        <Button fx:id="mentes" layoutX="250" layoutY="355.0" mnemonicParsing="false" onAction="#save" prefHeight="30" prefWidth="79.0" text="Mentés" />
+      <TextField fx:id="telefonField" layoutX="305.0" layoutY="297.0" />
+        <Button fx:id="mentes" layoutX="258.0" layoutY="365.0" mnemonicParsing="false" onAction="#save" prefHeight="30" prefWidth="79.0" text="Mentés" />
       <Label fx:id="successornot" layoutX="415.0" layoutY="362.0" prefHeight="17.0" prefWidth="130.0" textFill="WHITE" />
       <ChoiceBox fx:id="losChoice" layoutX="304.0" layoutY="164.0" prefHeight="25.0" prefWidth="149.0">
           <items>
@@ -83,5 +83,6 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
+      <Label layoutX="341.0" layoutY="249.0" text="YYYY-MM-DD" textFill="#aeaeae" />
     </children>
 </Pane>
