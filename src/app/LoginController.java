@@ -57,7 +57,7 @@ public class LoginController extends OpenFunctions {
 
     public void login(ActionEvent actionEvent) throws IOException {
 
-        username=user.getText();
+        username=user.getText().toUpperCase();
         password=pw.getText();
 
         if(userpass.containsKey(username))

@@ -68,7 +68,7 @@ public class ModositasController implements Initializable {
 
     public void save() throws SQLException {
         String EditedName=name.getText();
-        String EditedNeptun=neptun.getText();
+        String EditedNeptun=neptun.getText().toUpperCase();
         String EditedRole=(String)jog.getValue();
         String EditedEmail=email.getText();
 
