@@ -153,7 +153,7 @@ public class Adatok extends OpenFunctions implements Initializable {
             //Ha már benne van a students táblában akkor update
             try {
                     con.createStatement().executeUpdate("UPDATE students SET nationality='" + nationalityField.getText() + "',birthday='" + birthdateField.getText() + "',birthplace='" +
-                            birthplaceField.getText() + "',mobile='" + telefonField.getText() + "' WHERE neptun='" + LoginController.getUsername() + "'");
+                            birthplaceField.getText() + "',mobile='+36" + telefonField.getText() + "' WHERE neptun='" + LoginController.getUsername() + "'");
                     con.createStatement().executeUpdate("UPDATE users SET email='" + emailField.getText() + "' WHERE neptun='" + LoginController.getUsername() + "'");
                      successornot.setText("Sikeres mentés");
                 }
