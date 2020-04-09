@@ -66,7 +66,7 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="telefonField" layoutX="305.0" layoutY="297.0" />
+      <TextField fx:id="telefonField" layoutX="330.0" layoutY="297.0" prefHeight="25.0" prefWidth="124.0" />
         <Button fx:id="mentes" layoutX="258.0" layoutY="365.0" mnemonicParsing="false" onAction="#save" prefHeight="30" prefWidth="79.0" text="Mentés" />
       <Label fx:id="successornot" layoutX="415.0" layoutY="362.0" prefHeight="17.0" prefWidth="130.0" textFill="WHITE" />
       <ChoiceBox fx:id="losChoice" layoutX="304.0" layoutY="164.0" prefHeight="25.0" prefWidth="149.0">
@@ -84,5 +84,6 @@
          </font>
       </Label>
       <Label layoutX="341.0" layoutY="249.0" text="YYYY-MM-DD" textFill="#aeaeae" />
+      <Label layoutX="305.0" layoutY="301.0" text="+36" textFill="WHITE" />
     </children>
 </Pane>
