@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.collections.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
@@ -22,24 +24,24 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="neptunField" disable="true" editable="false" layoutX="305.0" layoutY="74.0" />
+      <TextField fx:id="neptunField" disable="true" editable="false" layoutX="305.0" layoutY="74.0" prefHeight="25.0" prefWidth="149.0" />
       <Label layoutX="184.0" layoutY="106.0" text="Név:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="nameField" disable="true" editable="false" layoutX="305.0" layoutY="104.0" />
+      <TextField fx:id="nameField" disable="true" editable="false" layoutX="305.0" layoutY="104.0" prefHeight="25.0" prefWidth="149.0" />
       <Label layoutX="183.0" layoutY="136.0" text="*Szak:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="183.0" layoutY="166.0" text="*Nemzetiség:" textFill="WHITE">
+      <Label layoutX="183.0" layoutY="317.0" text="Nemzetiség:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="nationalityField" layoutX="305.0" layoutY="164.0" />
+      <TextField fx:id="nationalityField" layoutX="304.0" layoutY="314.0" />
       <Label layoutX="183.0" layoutY="196.0" text="*Születési hely:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
@@ -57,7 +59,7 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <ChoiceBox layoutX="304.0" layoutY="134.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="degreeChoice" layoutX="304.0" layoutY="134.0" prefHeight="25.0" prefWidth="149.0" />
       <TextField fx:id="emailField" layoutX="305.0" layoutY="254.0" />
       <Label layoutX="183.0" layoutY="286.0" text="Telefon:" textFill="WHITE">
          <font>
@@ -67,5 +69,19 @@
       <TextField fx:id="telefonField" layoutX="305.0" layoutY="284.0" />
         <Button fx:id="mentes" layoutX="250" layoutY="355.0" mnemonicParsing="false" onAction="#save" prefHeight="30" prefWidth="79.0" text="Mentés" />
       <Label fx:id="successornot" layoutX="415.0" layoutY="362.0" prefHeight="17.0" prefWidth="130.0" textFill="WHITE" />
+      <ChoiceBox fx:id="losChoice" layoutX="304.0" layoutY="164.0" prefHeight="25.0" prefWidth="149.0">
+          <items>
+        <FXCollections fx:factory="observableArrayList">
+            <String fx:id="alap" fx:value="Alapképzés" />
+            <String fx:id="mester" fx:value="Mesterképzés" />
+            <String fx:id="doktor" fx:value="Doktori képzés" />
+        </FXCollections>
+      </items>
+        </ChoiceBox>
+      <Label layoutX="183.0" layoutY="167.0" text="Képzés:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
     </children>
 </Pane>
