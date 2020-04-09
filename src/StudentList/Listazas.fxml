@@ -2,21 +2,25 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<Pane fx:id="rt" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="722.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StudentList.Listazas">
+<Pane fx:id="rt" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="722.0" style="-fx-background-color: #262626;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StudentList.Listazas">
    <children>
-       <Button mnemonicParsing="false" onAction="#mainmenumegnyit" prefHeight="34.0" prefWidth="97.0" text="Főoldal" />
-       <Button layoutX="97.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="97.0" text="Hallgatók" />
-      <Button layoutX="244.0" layoutY="65.0" mnemonicParsing="false" onAction="#searchNeptun" text="Keres" />
-      <TextField fx:id="searchNeptunField" layoutX="76.0" layoutY="65.0" />
-      <Label layoutX="25.0" layoutY="69.0" text="Neptun:" />
-      <Label layoutX="404.0" layoutY="69.0" text="Név:" />
-      <TextField fx:id="searchNameField" layoutX="469.0" layoutY="65.0" />
-      <Button layoutX="634.0" layoutY="65.0" mnemonicParsing="false" onAction="#searchName" text="Keres" />
-      <TableView id="table" fx:id="table" layoutX="25.0" layoutY="135.0" prefHeight="216.0" prefWidth="673.0">
+      <Label layoutX="10.0" layoutY="40.0" text="Hallgatók" textFill="WHITE">
+         <font>
+            <Font name="Arial Black" size="18.0" />
+         </font></Label>
+       <Button mnemonicParsing="false" onAction="#mainmenumegnyit" prefHeight="34.0" prefWidth="97.0" stylesheets="@../StyleResources/gombstilus.css" text="Főoldal" textFill="WHITE" />
+       <Button layoutX="97.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="97.0" stylesheets="@../StyleResources/gombstilus.css" text="Hallgatók" textFill="WHITE" />
+      <Button layoutX="244.0" layoutY="85.0" mnemonicParsing="false" onAction="#searchNeptun" text="Keres" />
+      <TextField fx:id="searchNeptunField" layoutX="76.0" layoutY="85.0" />
+      <Label layoutX="25.0" layoutY="90.0" text="Neptun:" textFill="WHITE" />
+      <Label layoutX="404.0" layoutY="90.0" text="Név:" textFill="WHITE" />
+      <TextField fx:id="searchNameField" layoutX="469.0" layoutY="85.0" />
+      <Button layoutX="634.0" layoutY="85.0" mnemonicParsing="false" onAction="#searchName" text="Keres" />
+      <TableView id="table" fx:id="table" layoutX="25.0" layoutY="135.0" prefHeight="216.0" prefWidth="673.0" stylesheets="@../StyleResources/lista.css">
           <ContextMenu fx:id="cm">
               <items>
-                  <MenuItem fx:id="mi1" onAction="#Jelentkezesek" text="Jelentkezések" />
                   <MenuItem fx:id="mi2" onAction="#BovebbInformacio" text="Bővebb információ" />
               </items>
           </ContextMenu>
@@ -28,6 +32,7 @@
             <TableColumn fx:id="szak" prefWidth="216.0" text="Szak" />
         </columns>
       </TableView>
-      <Button layoutX="194.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="97.0" text="Jelentkezések" onAction="#Jelentkezesekopen"/>
+      <Button layoutX="194.0" mnemonicParsing="false" onAction="#Jelentkezesekopen" prefHeight="34.0" prefWidth="97.0" stylesheets="@../StyleResources/gombstilus.css" text="Jelentkezések" textFill="WHITE" />
+       <Button layoutX="626.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="97.0" stylesheets="@../StyleResources/gombstilus.css" text="Kijelentkezés" textFill="WHITE" onAction="#kijelentkezes"/>
    </children>
 </Pane>

@@ -4,94 +4,94 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StudentInformation.BovebbInfoController">
+<Pane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #262626;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StudentInformation.BovebbInfoController">
    <children>
-      <Label layoutX="87.0" layoutY="14.0" prefHeight="27.0" prefWidth="121.0" text="Születési név:" wrapText="true">
+      <Label layoutX="87.0" layoutY="14.0" prefHeight="27.0" prefWidth="121.0" text="Születési név:" textFill="WHITE" wrapText="true">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="87.0" layoutY="49.0" prefHeight="27.0" prefWidth="97.0" text="Neptunkód:" wrapText="true">
+      <Label layoutX="87.0" layoutY="49.0" prefHeight="27.0" prefWidth="97.0" text="Neptunkód:" textFill="WHITE" wrapText="true">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="87.0" layoutY="119.0" prefHeight="27.0" prefWidth="97.0" text="Szak:" wrapText="true">
+      <Label layoutX="87.0" layoutY="119.0" prefHeight="27.0" prefWidth="97.0" text="Szak:" textFill="WHITE" wrapText="true">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="87.0" layoutY="154.0" prefHeight="27.0" prefWidth="129.0" text="Fokozat:" wrapText="true">
+      <Label layoutX="87.0" layoutY="154.0" prefHeight="27.0" prefWidth="129.0" text="Fokozat:" textFill="WHITE" wrapText="true">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="87.0" layoutY="189.0" prefHeight="27.0" prefWidth="136.0" text="Születési dátum:" wrapText="true">
+      <Label layoutX="87.0" layoutY="189.0" prefHeight="27.0" prefWidth="136.0" text="Születési dátum:" textFill="WHITE" wrapText="true">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="87.0" layoutY="224.0" prefHeight="27.0" prefWidth="129.0" text="Születési hely:" wrapText="true">
+      <Label layoutX="87.0" layoutY="224.0" prefHeight="27.0" prefWidth="129.0" text="Születési hely:" textFill="WHITE" wrapText="true">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="87.0" layoutY="294.0" prefHeight="27.0" prefWidth="129.0" text="Email:" wrapText="true">
+      <Label layoutX="87.0" layoutY="294.0" prefHeight="27.0" prefWidth="129.0" text="Email:" textFill="WHITE" wrapText="true">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="87.0" layoutY="259.0" prefHeight="27.0" prefWidth="129.0" text="Telefon:" wrapText="true">
+      <Label layoutX="87.0" layoutY="259.0" prefHeight="27.0" prefWidth="129.0" text="Telefon:" textFill="WHITE" wrapText="true">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="87.0" layoutY="84.0" prefHeight="27.0" prefWidth="129.0" text="Nemzetiség:" wrapText="true">
+      <Label layoutX="87.0" layoutY="84.0" prefHeight="27.0" prefWidth="129.0" text="Nemzetiség:" textFill="WHITE" wrapText="true">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label id="szulnev" fx:id="szulnev" layoutX="304.0" layoutY="14.0" prefHeight="27.0" prefWidth="225.0" wrapText="true">
+      <Label id="szulnev" fx:id="szulnev" layoutX="304.0" layoutY="14.0" prefHeight="27.0" prefWidth="225.0" textFill="WHITE" wrapText="true">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="neptun" layoutX="304.0" layoutY="49.0" prefHeight="27.0" prefWidth="225.0" wrapText="true">
+      <Label fx:id="neptun" layoutX="304.0" layoutY="49.0" prefHeight="27.0" prefWidth="225.0" textFill="WHITE" wrapText="true">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="nemzetiseg" layoutX="304.0" layoutY="84.0" prefHeight="27.0" prefWidth="225.0" wrapText="true">
+      <Label fx:id="nemzetiseg" layoutX="304.0" layoutY="84.0" prefHeight="27.0" prefWidth="225.0" textFill="WHITE" wrapText="true">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="szak" layoutX="304.0" layoutY="119.0" prefHeight="27.0" prefWidth="225.0" wrapText="true">
+      <Label fx:id="szak" layoutX="304.0" layoutY="119.0" prefHeight="27.0" prefWidth="225.0" textFill="WHITE" wrapText="true">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="fokozat" layoutX="304.0" layoutY="154.0" prefHeight="27.0" prefWidth="225.0" wrapText="true">
+      <Label fx:id="fokozat" layoutX="304.0" layoutY="154.0" prefHeight="27.0" prefWidth="225.0" textFill="WHITE" wrapText="true">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="szuldate" layoutX="304.0" layoutY="189.0" prefHeight="27.0" prefWidth="225.0" wrapText="true">
+      <Label fx:id="szuldate" layoutX="304.0" layoutY="189.0" prefHeight="27.0" prefWidth="225.0" textFill="WHITE" wrapText="true">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="szulhely" layoutX="304.0" layoutY="224.0" prefHeight="27.0" prefWidth="225.0" wrapText="true">
+      <Label fx:id="szulhely" layoutX="304.0" layoutY="224.0" prefHeight="27.0" prefWidth="225.0" textFill="WHITE" wrapText="true">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="telefon" layoutX="304.0" layoutY="259.0" prefHeight="27.0" prefWidth="225.0" wrapText="true">
+      <Label fx:id="telefon" layoutX="304.0" layoutY="259.0" prefHeight="27.0" prefWidth="225.0" textFill="WHITE" wrapText="true">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="email" layoutX="304.0" layoutY="294.0" prefHeight="27.0" prefWidth="225.0" wrapText="true">
+      <Label fx:id="email" layoutX="304.0" layoutY="294.0" prefHeight="27.0" prefWidth="225.0" textFill="WHITE" wrapText="true">
          <font>
             <Font size="18.0" />
          </font>

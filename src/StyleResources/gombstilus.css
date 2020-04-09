@@ -1,0 +1,16 @@
+.button
+{
+        -fx-background-color:#d0451b;
+        -fx-font-family: "Helvetica";
+        -fx-font-size: 12px;
+        -fx-text-fill: #ffffff;
+        -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.1) , 2, 0.0 , 0 , 1);
+        -fx-border-color:#942911;
+}
+
+.button:hover {
+    -fx-background-color: #ffc447;
+    -fx-background-radius:0;
+    -fx-border-width: 0 3 3 0;
+}
+

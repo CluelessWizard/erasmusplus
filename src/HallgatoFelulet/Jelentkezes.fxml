@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane id="mainmenu" fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="722.0" style="-fx-background-color: #262626;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HallgatoFelulet.Jelentkezes">
+    <children>
+        <Button onAction="#mainmenuOpen" prefHeight="34.0" prefWidth="97.0" stylesheets="@../StyleResources/gombstilus.css" text="Főoldal" textFill="WHITE" />
+        <Button layoutX="97.0" mnemonicParsing="false" onAction="#egyetemOpen" prefHeight="34.0" prefWidth="97.0" stylesheets="@../StyleResources/gombstilus.css" text="Egyetemek" textFill="WHITE" />
+        <Button layoutX="194.0" mnemonicParsing="false" onAction="#jelentkezesOpen" prefHeight="34.0" prefWidth="97.0" stylesheets="@../StyleResources/gombstilus.css" text="Jelentkezés" textFill="WHITE" />
+        <Label layoutX="10.0" layoutY="40.0" text="Jelentkezés" textFill="WHITE">
+            <font>
+                <Font name="Arial Black" size="18.0" />
+            </font>
+        </Label>
+        <Button layoutX="626.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="97.0" stylesheets="@../StyleResources/gombstilus.css" text="Kijelentkezés" textFill="WHITE" onAction="#kijelentkezes"/>
+        <Button layoutX="483.0" mnemonicParsing="false" onAction="#adatokOpen" prefHeight="34.0" prefWidth="130.0" stylesheets="@../StyleResources/gombstilus.css" text="Személyes adatok" textFill="WHITE" />
+        <Button layoutX="291.0" mnemonicParsing="false" onAction="#ertekelesOpen" prefHeight="34.0" prefWidth="97.0" stylesheets="@../StyleResources/gombstilus.css" text="Értékelés" textFill="WHITE" />
+    </children>
+</Pane>

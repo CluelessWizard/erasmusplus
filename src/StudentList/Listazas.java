@@ -1,7 +1,6 @@
 package StudentList;
 
 import Applications.Jelentkezesek;
-import MainMenu.mainmenu;
 import StudentInformation.BovebbInfoController;
 import app.LoginController;
 import app.dbconnection;
@@ -10,16 +9,12 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URL;
@@ -27,11 +22,9 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 
-public class Listazas implements Initializable {
+public class Listazas  implements Initializable  {
     @FXML private TableView<Student> table;
     @FXML private TableColumn<Student,String> neptun;
     @FXML private TableColumn<Student,String> nev;
@@ -39,9 +32,9 @@ public class Listazas implements Initializable {
     @FXML private TableColumn<Student,String> email;
     @FXML private TableColumn<Student,String> szak;
     @FXML ContextMenu cm;
-    @FXML MenuItem mi1;
     @FXML MenuItem mi2;
     @FXML Parent rt;
+
 
     static Student selectedforedit;
 
@@ -65,10 +58,6 @@ public class Listazas implements Initializable {
 
     }
 
-    public void Jelentkezesek()
-    {
-
-    }
 
     public void BovebbInformacio(javafx.event.ActionEvent actionEvent) throws IOException, SQLException {
         selectedforedit = table.getSelectionModel().getSelectedItem();
@@ -83,10 +72,11 @@ public class Listazas implements Initializable {
 
         try {
             Connection con= dbconnection.getConn();
-            ResultSet rs=con.createStatement().executeQuery("select * from students");
+            ResultSet rs=con.createStatement().executeQuery("select * from students s JOIN users u ON s.neptun=u.neptun");
 
             while (rs.next())
             {
+                if (rs.getString("role").equals("1"))
                 oblist.add(new Student(rs.getString("name"),rs.getString("neptun"),rs.getString("mobile"),rs.getString("email"),rs.getString("degree")));
             }
 
@@ -114,10 +104,10 @@ public class Listazas implements Initializable {
     {
         ObservableList<Student> tmp= FXCollections.observableArrayList();
 
-        String sname=searchNameField.getText();
+        String sname=searchNameField.getText().toUpperCase();
 
         oblist.forEach((Student) -> {
-            if(Student.getNev().equals(sname)) tmp.add(Student);
+            if(Student.getNev().toUpperCase().equals(sname)) tmp.add(Student);
         });
 
         table.setItems(tmp);
@@ -133,7 +123,7 @@ public class Listazas implements Initializable {
     {
         ObservableList<Student> tmp= FXCollections.observableArrayList();
 
-        String sname=searchNeptunField.getText();
+        String sname=searchNeptunField.getText().toUpperCase();
 
         oblist.forEach((Student) -> {
             if(Student.getNeptun().equals(sname)) tmp.add(Student);
@@ -155,6 +145,12 @@ public class Listazas implements Initializable {
 
     public void Jelentkezesekopen(ActionEvent actionEvent) throws IOException {
         new Jelentkezesek().Jelentkezesopen(actionEvent);
+    }
+
+
+    public void kijelentkezes(ActionEvent actionEvent) throws Exception {
+         new LoginController().megnyit(actionEvent);
+
     }
 
 }

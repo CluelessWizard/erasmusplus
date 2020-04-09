@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #262626;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AdminFelulet.adminmenuController">
+   <children>
+      <TableView fx:id="table" layoutX="51.0" layoutY="81.0" prefHeight="200.0" prefWidth="632.0" stylesheets="@../StyleResources/lista.css">
+        <columns>
+          <TableColumn fx:id="neptun" prefWidth="113.0" text="Neptun" />
+          <TableColumn fx:id="nev" minWidth="8.0" prefWidth="242.0" text="Név" />
+            <TableColumn fx:id="tipus" prefWidth="95.0" text="Típus" />
+            <TableColumn fx:id="email" prefWidth="181.0" text="Email" />
+        </columns>
+      </TableView>
+      <Label layoutX="51.0" layoutY="29.0" text="Felhasználók" textFill="WHITE">
+         <font>
+            <Font name="Arial Black" size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="51.0" layoutY="317.0" mnemonicParsing="false" onAction="#edit" prefHeight="40.0" prefWidth="86.0" text="Módosítás" />
+      <Button layoutX="171.0" layoutY="317.0" mnemonicParsing="false" onAction="#delete" prefHeight="40.0" prefWidth="86.0" text="Törlés" />
+      <Button layoutX="419.0" layoutY="317.0" mnemonicParsing="false" onAction="#passwordReset" prefHeight="40.0" prefWidth="130.0" text="Jelszó visszaállítása" />
+      <Label layoutX="453.0" layoutY="369.0" text="(&quot;NEPTUN&quot;)" textFill="WHITE" />
+       <Button layoutX="626.0" mnemonicParsing="false" onAction="#kijelentkezes" prefHeight="34.0" prefWidth="97.0" stylesheets="@../StyleResources/gombstilus.css" text="Kijelentkezés" textFill="WHITE" />
+   </children>
+</AnchorPane>

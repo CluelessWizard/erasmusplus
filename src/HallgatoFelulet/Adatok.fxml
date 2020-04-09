@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane id="mainmenu" fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="722.0" style="-fx-background-color: #262626;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HallgatoFelulet.Adatok">
+    <children>
+        <Button onAction="#mainmenuOpen" prefHeight="34.0" prefWidth="97.0" stylesheets="@../StyleResources/gombstilus.css" text="Főoldal" textFill="WHITE" />
+        <Button layoutX="97.0" mnemonicParsing="false" onAction="#egyetemOpen" prefHeight="34.0" prefWidth="97.0" stylesheets="@../StyleResources/gombstilus.css" text="Egyetemek" textFill="WHITE" />
+        <Button layoutX="194.0" mnemonicParsing="false" onAction="#jelentkezesOpen" prefHeight="34.0" prefWidth="97.0" stylesheets="@../StyleResources/gombstilus.css" text="Jelentkezés" textFill="WHITE" />
+        <Label layoutX="10.0" layoutY="40.0" text="Személyes adatok" textFill="WHITE">
+            <font>
+                <Font name="Arial Black" size="18.0" />
+            </font>
+        </Label>
+        <Button layoutX="626.0" mnemonicParsing="false" onAction="#kijelentkezes" prefHeight="34.0" prefWidth="97.0" stylesheets="@../StyleResources/gombstilus.css" text="Kijelentkezés" textFill="WHITE" />
+        <Button layoutX="483.0" mnemonicParsing="false" onAction="#adatokOpen" prefHeight="34.0" prefWidth="130.0" stylesheets="@../StyleResources/gombstilus.css" text="Személyes adatok" textFill="WHITE" />
+        <Button layoutX="291.0" mnemonicParsing="false" onAction="#ertekelesOpen" prefHeight="34.0" prefWidth="97.0" stylesheets="@../StyleResources/gombstilus.css" text="Értékelés" textFill="WHITE" />
+      <Label layoutX="183.0" layoutY="76.0" text="Neptunkód:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="neptunField" disable="true" editable="false" layoutX="305.0" layoutY="74.0" prefHeight="25.0" prefWidth="149.0" />
+      <Label layoutX="184.0" layoutY="106.0" text="Név:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nameField" disable="true" editable="false" layoutX="305.0" layoutY="104.0" prefHeight="25.0" prefWidth="149.0" />
+      <Label layoutX="183.0" layoutY="136.0" text="*Szak:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="183.0" layoutY="328.0" text="Nemzetiség:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nationalityField" layoutX="304.0" layoutY="327.0" />
+      <Label layoutX="183.0" layoutY="196.0" text="*Születési hely:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="birthplaceField" layoutX="305.0" layoutY="194.0" />
+      <Label layoutX="183.0" layoutY="226.0" prefHeight="20.0" prefWidth="118.0" text="*Születési dátum:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="birthdateField" layoutX="305.0" layoutY="224.0" />
+      <Label layoutX="183.0" layoutY="269.0" text="Email:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="degreeChoice" layoutX="304.0" layoutY="134.0" prefHeight="25.0" prefWidth="149.0" />
+      <TextField fx:id="emailField" layoutX="304.0" layoutY="267.0" />
+      <Label layoutX="183.0" layoutY="297.0" text="Telefon:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="telefonField" layoutX="330.0" layoutY="297.0" prefHeight="25.0" prefWidth="124.0" />
+        <Button fx:id="mentes" layoutX="258.0" layoutY="365.0" mnemonicParsing="false" onAction="#save" prefHeight="30" prefWidth="79.0" text="Mentés" />
+      <Label fx:id="successornot" layoutX="415.0" layoutY="362.0" prefHeight="17.0" prefWidth="130.0" textFill="WHITE" />
+      <ChoiceBox fx:id="losChoice" layoutX="304.0" layoutY="164.0" prefHeight="25.0" prefWidth="149.0">
+          <items>
+        <FXCollections fx:factory="observableArrayList">
+            <String fx:id="alap" fx:value="Alapképzés" />
+            <String fx:id="mester" fx:value="Mesterképzés" />
+            <String fx:id="doktor" fx:value="Doktori képzés" />
+        </FXCollections>
+      </items>
+        </ChoiceBox>
+      <Label layoutX="183.0" layoutY="167.0" text="Képzés:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="341.0" layoutY="249.0" text="YYYY-MM-DD" textFill="#aeaeae" />
+      <Label layoutX="305.0" layoutY="301.0" text="+36" textFill="WHITE" />
+    </children>
+</Pane>
