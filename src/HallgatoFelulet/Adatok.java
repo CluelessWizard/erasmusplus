@@ -114,7 +114,7 @@ public class Adatok extends OpenFunctions implements Initializable {
                     nationalityField.setText(rs.getString("nationality"));
                     birthdateField.setText(rs.getString("birthday"));
                     birthplaceField.setText(rs.getString("birthplace"));
-                    telefonField.setText(rs.getString("mobile"));
+                    telefonField.setText(rs.getString("mobile").substring(3));
 
             }
 
