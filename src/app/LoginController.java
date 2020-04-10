@@ -19,8 +19,6 @@ import java.util.HashMap;
 
 public class LoginController extends OpenFunctions {
 
-
-
     public Label info;
     public PasswordField pw;
     public TextField user;
@@ -28,13 +26,9 @@ public class LoginController extends OpenFunctions {
     private static String username;
     private static String password;
 
-    public static String getUsername() {
-        return username;
-    }
+    public static String getUsername() { return username; }
 
-    public String getPassword() {
-        return password;
-    }
+//    public String getPassword() { return password; }
 
     Scene scene1;
 
@@ -43,20 +37,13 @@ public class LoginController extends OpenFunctions {
 
     public LoginController(){
         try {
-            if(dbconnection.getConn() == null){
-                new dbconnection();
-            } else {
-                dbconnection.refresh();
-            }
+            dbconnection.refresh();
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
     }
 
     public void login(ActionEvent actionEvent) throws IOException {
-
         username=user.getText().toUpperCase();
         password=pw.getText();
 
@@ -85,6 +72,7 @@ public class LoginController extends OpenFunctions {
             info.setText("Hibás felhasználó!");
         }
     }
+
     public void registration(ActionEvent actionEvent) throws IOException {
         RegController.megnyit(actionEvent);
     }
