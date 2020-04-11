@@ -170,12 +170,14 @@ public class JelentkezesiLap implements Initializable {
     }
 
 
-
+    static ActionEvent kapottScene;
     public static void megnyit(ActionEvent actionEvent) throws IOException {
+
+        kapottScene=actionEvent;
+
         Parent p = FXMLLoader.load(Jelentkezes.class.getResource("JelentkezesiLap.fxml"));
         Scene s = new Scene(p);
 
-        //stage információ
         Stage window = new Stage();
 
         window.setScene(s);
@@ -231,9 +233,7 @@ public class JelentkezesiLap implements Initializable {
                         ","+targyak[3]+","+targyak[4]+","+targyak[5]+","+targyak[6]+","+targyak[7]+","+targyak[8]+","+targyak[9]+","+targyak[10]+","+targyak[11]+
                         ","+targyak[12]+","+targyak[13]+","+targyak[14]+")");
 
-                //ablak bezárása jelentkezés után
-                Stage stage = (Stage) mentes.getScene().getWindow();
-                stage.close();
+
 
                 //adatok hozzáadása students táblához
                 String a="";
@@ -251,9 +251,13 @@ public class JelentkezesiLap implements Initializable {
                 }
                 con.createStatement().executeUpdate("UPDATE students SET "+a+"="+(lastID+1)+" WHERE neptun='"+LoginController.getUsername()+"'");
 
-                //Jelentkezes frissítése
-                new Jelentkezes().refresh();
+                //mainscene frissítése
+                Jelentkezes.megnyit(kapottScene);
 
+
+                //ablak bezárása jelentkezés után
+                Stage stage = (Stage) mentes.getScene().getWindow();
+                stage.close();
 
             } catch (Exception ex) {
                 hibauzenet.setText("Hiányzó adatok");

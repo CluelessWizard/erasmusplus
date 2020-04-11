@@ -66,10 +66,11 @@ public class Jelentkezes extends OpenFunctions implements Initializable {
     
 
     @FXML
-    TableView table;
+    TableView<tablaLista> table;
 
-    @FXML
-    TableColumn jelentkezesID, jelEgyetem, jelVaros;
+    @FXML TableColumn<tablaLista,String> jelentkezesID;
+    @FXML TableColumn<tablaLista,String> jelEgyetem;
+    @FXML TableColumn<tablaLista,String> jelVaros;
 
     private static int jelentkezesekSzama=0;
 
@@ -79,7 +80,7 @@ public class Jelentkezes extends OpenFunctions implements Initializable {
 
     private static ObservableList<tablaLista>oblist = FXCollections.observableArrayList();
 
-    Connection con;
+    private static Connection con;
 
     public static void megnyit(ActionEvent actionEvent) throws IOException {
         Parent p = FXMLLoader.load(Jelentkezes.class.getResource("Jelentkezes.fxml"));
@@ -95,7 +96,6 @@ public class Jelentkezes extends OpenFunctions implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        table.setPlaceholder(new Label("Nincsenek Jelentkezéseid"));
         refresh();
     }
 
@@ -121,6 +121,8 @@ public class Jelentkezes extends OpenFunctions implements Initializable {
                 oblist.add(new tablaLista(app3.getString("a.ID"),app3.getString("i.name"),app3.getString("i.city")));
             }
             jelentkezesekSzama=oblist.size();
+
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -129,16 +131,28 @@ public class Jelentkezes extends OpenFunctions implements Initializable {
         jelEgyetem.setCellValueFactory(new PropertyValueFactory<>("egyetem"));
         jelVaros.setCellValueFactory(new PropertyValueFactory<>("varos"));
 
-        if (!oblist.isEmpty()) table.setItems(oblist);
+        if (oblist.size()>0)
+        {
+            table.setItems(oblist);
+        }
+        else table.setPlaceholder(new Label("Nincsenek Jelentkezéseid"));
     }
+
 
     public void newApp(ActionEvent actionEvent) throws IOException {
         if (jelentkezesekSzama<3) JelentkezesiLap.megnyit(actionEvent);
     }
 
     public void delete(ActionEvent actionEvent) throws SQLException {
-        tablaLista a= (tablaLista) table.getSelectionModel().getSelectedItem();
-        con.createStatement().executeUpdate("DELETE FROM applications WHERE ID="+a.getId());
+        try {
+            tablaLista a = table.getSelectionModel().getSelectedItem();
+            con.createStatement().executeUpdate("DELETE FROM applications WHERE ID=" + a.getId());
+            refresh();
+        }catch(Exception ex){ }
+    }
+
+    public void update()
+    {
         refresh();
     }
 }
