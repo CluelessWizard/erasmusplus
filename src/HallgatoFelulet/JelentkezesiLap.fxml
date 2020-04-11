@@ -148,8 +148,8 @@
             </Label>
             <CheckBox fx:id="csekk1" layoutX="180.0" layoutY="727.0" mnemonicParsing="false" text="Tudomásul veszem és elfogadom az ÁSZF-t" textFill="WHITE" />
             <CheckBox fx:id="csekk2" layoutX="180.0" layoutY="755.0" mnemonicParsing="false" text="Aktív hallgatóként pályázom" textFill="WHITE" />
-            <Button layoutX="77.0" layoutY="781.0" mnemonicParsing="false" onAction="#save" prefHeight="25.0" prefWidth="80.0" text="Jelentkezés" />
-            <Button layoutX="425.0" layoutY="781.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" text="Mégse" />
+            <Button fx:id="mentes" layoutX="77.0" layoutY="781.0" mnemonicParsing="false" onAction="#save" prefHeight="25.0" prefWidth="80.0" text="Jelentkezés"/>
+            <Button fx:id="megse" layoutX="425.0" layoutY="781.0" mnemonicParsing="false" onAction="#cancel" prefHeight="25.0" prefWidth="80.0" text="Mégse" />
          </children></AnchorPane>
   </content>
 </ScrollPane>

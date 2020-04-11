@@ -12,10 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -43,11 +40,40 @@ public class JelentkezesiLap implements Initializable {
     @FXML
     Label hibauzenet;
 
+    @FXML Button mentes,megse;
+
+    ChoiceBox[] chosenTargyak=new ChoiceBox[15];
+
+    String chosenEgyetem="";
+    String chosenVaros="";
+    String chosenEgyetemID="0";
+
     private List<String> osszestargy=new ArrayList<>();
+
+    public void targySetinit()
+    {
+        chosenTargyak[0]=targy1;
+        chosenTargyak[1]=targy2;
+        chosenTargyak[2]=targy3;
+        chosenTargyak[3]=targy4;
+        chosenTargyak[4]=targy5;
+        chosenTargyak[5]=targy6;
+        chosenTargyak[6]=targy7;
+        chosenTargyak[7]=targy8;
+        chosenTargyak[8]=targy9;
+        chosenTargyak[9]=targy10;
+        chosenTargyak[10]=targy11;
+        chosenTargyak[11]=targy12;
+        chosenTargyak[12]=targy13;
+        chosenTargyak[13]=targy14;
+        chosenTargyak[14]=targy15;
+    }
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        targySetinit();
 
         try {
             //Tanulmányok beállítása
@@ -94,8 +120,11 @@ public class JelentkezesiLap implements Initializable {
             public void changed(ObservableValue<? extends Number> observableValue, Number number, Number number2) {
                 try {
                     osszestargy.clear();
+                    for (int i=0;i<chosenTargyak.length;i++) chosenTargyak[i].getSelectionModel().clearSelection();
                     String tmp=(String)egyetem.getItems().get((Integer) number2);
                     choiceboxFeltolt(tmp.split(",")[0]);
+                    chosenEgyetem=tmp.split(",")[0];
+                    chosenVaros=tmp.split(", ")[1];
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -158,6 +187,73 @@ public class JelentkezesiLap implements Initializable {
         if (csekk1.isSelected() && csekk2.isSelected()) {
             hibauzenet.setText("");
             try {
+                con=dbconnection.getConn();
+                //Kiválasztott egyetem ID lekérdezése
+                ResultSet rs=con.createStatement().executeQuery("SELECT * FROM institutions WHERE name='"+chosenEgyetem+"' AND city='"+chosenVaros+"'");
+
+                while(rs.next())
+                {
+                    chosenEgyetemID=rs.getString("ID");
+                }
+
+                //Kiválasztott tárgy ID-K lekérdezése
+                rs=con.createStatement().executeQuery("SELECT * FROM courses WHERE InstitutionID='"+chosenEgyetemID+"'");
+                String[] targyak=new String[15];
+                Boolean alltrue=true;
+
+                for (int i=0;i<chosenTargyak.length;i++)
+                {
+                    if (chosenTargyak[i].getSelectionModel().isEmpty())
+                    {
+                        throw new Exception();
+                    }
+                }
+
+                //Kiválasztott tárgy ID-k beállítása
+                while (rs.next())
+                {
+                    for (int i=0;i<chosenTargyak.length;i++)
+                    {
+                        if (rs.getString("name").equals(chosenTargyak[i].getSelectionModel().getSelectedItem()))
+                        {
+                            targyak[i]=rs.getString("ID");
+                        }
+                    }
+                }
+
+                //Legnagyobb ID lekérdezése (ha ezt nem tesszük meg, akkor valamiért onnan folytatja a hozzáadást, ahol abbahagyta, akkor is ha már töröltük..
+                ResultSet utolsoID=con.createStatement().executeQuery("SELECT ID FROM applications ORDER BY ID desc LIMIT 1");
+                int lastID=0;
+                while(utolsoID.next()) lastID=Integer.parseInt(utolsoID.getString("ID"));
+                con.createStatement().executeUpdate("INSERT INTO applications (ID,institutionID,selectedCourseID1,selectedCourseID2,selectedCourseID3" +
+                        ",selectedCourseID4,selectedCourseID5,selectedCourseID6,selectedCourseID7,selectedCourseID8,selectedCourseID9,selectedCourseID10,selectedCourseID11" +
+                        ",selectedCourseID12,selectedCourseID13,selectedCourseID14,selectedCourseID15) VALUES("+(lastID+1)+","+chosenEgyetemID+","+targyak[0]+","+targyak[1]+","+targyak[2]+
+                        ","+targyak[3]+","+targyak[4]+","+targyak[5]+","+targyak[6]+","+targyak[7]+","+targyak[8]+","+targyak[9]+","+targyak[10]+","+targyak[11]+
+                        ","+targyak[12]+","+targyak[13]+","+targyak[14]+")");
+
+                //ablak bezárása jelentkezés után
+                Stage stage = (Stage) mentes.getScene().getWindow();
+                stage.close();
+
+                //adatok hozzáadása students táblához
+                String a="";
+                switch (Jelentkezes.getJelentkezesekSzama())
+                {
+                    case 0:
+                        a="applicationID1";
+                        break;
+                    case 1:
+                        a="applicationID2";
+                        break;
+                    case 2:
+                        a="applicationID3";
+                        break;
+                }
+                con.createStatement().executeUpdate("UPDATE students SET "+a+"="+(lastID+1)+" WHERE neptun='"+LoginController.getUsername()+"'");
+
+                //Jelentkezes frissítése
+                new Jelentkezes().refresh();
+
 
             } catch (Exception ex) {
                 hibauzenet.setText("Hiányzó adatok");
@@ -165,5 +261,11 @@ public class JelentkezesiLap implements Initializable {
         }else {
             hibauzenet.setText("Kérjük fogadd el a feltételeket.");
         }
+    }
+
+    public void cancel()
+    {
+        Stage stage = (Stage) megse.getScene().getWindow();
+        stage.close();
     }
 }

@@ -17,14 +17,20 @@
         <Button layoutX="626.0" mnemonicParsing="false" onAction="#kijelentkezes" prefHeight="34.0" prefWidth="97.0" stylesheets="@../StyleResources/gombstilus.css" text="Kijelentkezés" textFill="WHITE" />
         <Button layoutX="483.0" mnemonicParsing="false" onAction="#adatokOpen" prefHeight="34.0" prefWidth="130.0" stylesheets="@../StyleResources/gombstilus.css" text="Személyes adatok" textFill="WHITE" />
         <Button layoutX="291.0" mnemonicParsing="false" onAction="#ertekelesOpen" prefHeight="34.0" prefWidth="97.0" stylesheets="@../StyleResources/gombstilus.css" text="Értékelés" textFill="WHITE" />
-      <ListView fx:id="lista" layoutX="29.0" layoutY="140.0" prefHeight="71.0" prefWidth="200.0" />
       <Label layoutX="30.0" layoutY="115.0" text="Eddigi jelentkezéseid:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Button fx:id="newApp" layoutX="243.0" layoutY="140.0" mnemonicParsing="false" onAction="#newApp" prefHeight="25.0" prefWidth="56.0" text="Új" />
-      <Button layoutX="243.0" layoutY="176.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="56.0" text="Törlés" />
-      <Button layoutX="30.0" layoutY="223.0" mnemonicParsing="false" text="Részletek" />
+      <Button fx:id="newApp" layoutX="254.0" layoutY="150.0" mnemonicParsing="false" onAction="#newApp" prefHeight="34.0" prefWidth="65.0" text="Új" />
+      <Button fx:id="delete" layoutX="254.0" layoutY="200.0" mnemonicParsing="false" onAction="#delete" prefHeight="34.0" prefWidth="65.0" text="Törlés" />
+      <Button layoutX="20.0" layoutY="340.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="76.0" text="Részletek" />
+      <TableView fx:id="table" layoutX="19.0" layoutY="147.0" prefHeight="176.0" prefWidth="220.0">
+        <columns>
+          <TableColumn fx:id="jelentkezesID" prefWidth="42.0" text="id" />
+          <TableColumn fx:id="jelEgyetem" prefWidth="78.0" text="Egyetem" />
+            <TableColumn fx:id="jelVaros" prefWidth="75.0" text="Város" />
+        </columns>
+      </TableView>
     </children>
 </Pane>

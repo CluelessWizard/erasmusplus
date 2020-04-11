@@ -12,7 +12,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -23,10 +25,59 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class Jelentkezes extends OpenFunctions implements Initializable {
-    @FXML
-    ListView lista;
 
-    private ObservableList<String> oblist = FXCollections.observableArrayList();
+    public class tablaLista
+    {
+        String id;
+        String egyetem;
+        String varos;
+
+        public tablaLista(String id, String egyetem, String varos) {
+            this.id = id;
+            this.egyetem = egyetem;
+            this.varos = varos;
+        }
+
+        public String getId() {
+            return id;
+        }
+
+        public void setId(String id) {
+            this.id = id;
+        }
+
+        public String getEgyetem() {
+            return egyetem;
+        }
+
+        public void setEgyetem(String egyetem) {
+            this.egyetem = egyetem;
+        }
+
+        public String getVaros() {
+            return varos;
+        }
+
+        public void setVaros(String varos) {
+            this.varos = varos;
+        }
+
+    }
+    
+
+    @FXML
+    TableView table;
+
+    @FXML
+    TableColumn jelentkezesID, jelEgyetem, jelVaros;
+
+    private static int jelentkezesekSzama=0;
+
+    public static int getJelentkezesekSzama() {
+        return jelentkezesekSzama;
+    }
+
+    private static ObservableList<tablaLista>oblist = FXCollections.observableArrayList();
 
     Connection con;
 
@@ -44,36 +95,50 @@ public class Jelentkezes extends OpenFunctions implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        lista.setPlaceholder(new Label("Nincsenek Jelentkezéseid"));
+        table.setPlaceholder(new Label("Nincsenek Jelentkezéseid"));
+        refresh();
+    }
+
+    public void refresh()
+    {
+        oblist.clear();
         try {
             con= dbconnection.getConn();
             ResultSet app1=con.createStatement().executeQuery("SELECT * FROM students s JOIN applications a ON s.ApplicationID1=a.ID JOIN institutions i ON i.ID=a.institutionID WHERE s.neptun='"+ LoginController.getUsername()+"'");
             ResultSet app2=con.createStatement().executeQuery("SELECT * FROM students s JOIN applications a ON s.ApplicationID2=a.ID JOIN institutions i ON i.ID=a.institutionID WHERE s.neptun='"+ LoginController.getUsername()+"'");
             ResultSet app3=con.createStatement().executeQuery("SELECT * FROM students s JOIN applications a ON s.ApplicationID3=a.ID JOIN institutions i ON i.ID=a.institutionID WHERE s.neptun='"+ LoginController.getUsername()+"'");
 
-
-
             while (app1.next())
             {
-                oblist.add(app1.getString("i.name"));
+                oblist.add(new tablaLista(app1.getString("a.ID"),app1.getString("i.name"),app1.getString("i.city")));
             }
             while (app2.next())
             {
-                oblist.add(app2.getString("i.name"));
+                oblist.add(new tablaLista(app2.getString("a.ID"),app2.getString("i.name"),app2.getString("i.city")));
             }
             while (app3.next())
             {
-                oblist.add(app3.getString("i.name"));
+                oblist.add(new tablaLista(app3.getString("a.ID"),app3.getString("i.name"),app3.getString("i.city")));
             }
-
+            jelentkezesekSzama=oblist.size();
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        if (!oblist.isEmpty()) lista.setItems(oblist);
+        jelentkezesID.setCellValueFactory(new PropertyValueFactory<>("id"));
+        jelEgyetem.setCellValueFactory(new PropertyValueFactory<>("egyetem"));
+        jelVaros.setCellValueFactory(new PropertyValueFactory<>("varos"));
+
+        if (!oblist.isEmpty()) table.setItems(oblist);
     }
 
     public void newApp(ActionEvent actionEvent) throws IOException {
-        JelentkezesiLap.megnyit(actionEvent);
+        if (jelentkezesekSzama<3) JelentkezesiLap.megnyit(actionEvent);
+    }
+
+    public void delete(ActionEvent actionEvent) throws SQLException {
+        tablaLista a= (tablaLista) table.getSelectionModel().getSelectedItem();
+        con.createStatement().executeUpdate("DELETE FROM applications WHERE ID="+a.getId());
+        refresh();
     }
 }
