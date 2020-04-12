@@ -9,5 +9,5 @@
         <font>
             <Font name="Arial" size="18.0" />
         </font></Label>
-    <Button layoutX="113.0" layoutY="101.0" mnemonicParsing="false" onAction="#kilep" prefHeight="35.0" prefWidth="75.0" text="OK" />
+    <Button layoutX="113.0" layoutY="101.0" mnemonicParsing="false" onAction="#popupkilep" prefHeight="35.0" prefWidth="75.0" text="OK" />
 </AnchorPane>
