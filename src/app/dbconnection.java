@@ -15,7 +15,7 @@ public class dbconnection {
     }
 
     public static Connection getConn() throws SQLException {
-        return DriverManager.getConnection("jdbc:mysql://localhost:3306/erasmusdb","root","");
+        return DriverManager.getConnection(url,user,pass);
     }
 
     public static void refresh(){
@@ -23,7 +23,7 @@ public class dbconnection {
             Class.forName("com.mysql.cj.jdbc.Driver");
             conn=DriverManager.getConnection(url,user,pass);
             st=conn.createStatement();
-            rs=st.executeQuery("select * from erasmusdb.users");
+            rs=st.executeQuery("select * from users");
 
             String username,password,Role;
             HashMap<String, String> upcombo = new HashMap<>();

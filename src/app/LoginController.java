@@ -44,33 +44,29 @@ public class LoginController extends OpenFunctions {
     }
 
     public void login(ActionEvent actionEvent) throws IOException {
+
+        dbconnection.refresh();
         username=user.getText().toUpperCase();
         password=pw.getText();
 
-        if(userpass.containsKey(username))
-        {
-
-           if(userpass.get(username).equals(password)){
-                if (userRole.get(username).equals("2") || userRole.get(username).equals("3")) {
-                    mainmenuopen(actionEvent);
+        if(userpass.containsKey(username)){
+            if(userpass.get(username).equals(password)){
+                switch (userRole.get(username)){
+                    case "1":
+                        StudentMain.megnyit(actionEvent);
+                        break;
+                    case "2":
+                    case "3":
+                        mainmenuopen(actionEvent);
+                        break;
+                    case "4":
+                        adminmenuController.megnyit(actionEvent);
+                        break;
                 }
-               if (userRole.get(username).equals("4")){
-                    adminmenuController.megnyit(actionEvent);
-               }
-               if (userRole.get(username).equals("1"))
-               {
-                   StudentMain.megnyit(actionEvent);
-               }
-
-
-        }
-           else {
-                info.setText("Hibás jelszó!");
             }
+            else info.setText("Hibás jelszó!");
         }
-        else {
-            info.setText("Hibás felhasználó!");
-        }
+        else info.setText("Hibás felhasználó!");
     }
 
     public void registration(ActionEvent actionEvent) throws IOException {
