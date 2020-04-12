@@ -35,24 +35,25 @@ public class RegController {
         window.show();
     }
 
-    public void save(ActionEvent actionEvent) throws SQLException, IOException {
+    @FXML
+    private void save(ActionEvent actionEvent) throws SQLException, IOException {
         ResultSet rs=dbconnection.getConn().createStatement().executeQuery("SELECT * FROM users");
 
-        Boolean notexists=true;
+        boolean exists = false;
 
         while (rs.next())
         {
             if (rs.getString("neptun").equals(neptun.getText().toUpperCase()))
             {
-                notexists=false;
+                exists = true;
             }
         }
 
-        if (notexists)
+        if (!exists)
         {
             if (jelszo1.getText().equals(jelszo2.getText())) {
                 dbconnection.getConn().createStatement().executeUpdate("INSERT INTO users (name,neptun,email,password,role) VALUES ('" +
-                        name.getText() + "','" + neptun.getText() + "','" + email.getText() + "','" + jelszo1.getText() + "',1)");
+                        name.getText() + "','" + neptun.getText().toUpperCase() + "','" + email.getText() + "','" + jelszo1.getText() + "',1)");
 
                 kilep(actionEvent);
             }
@@ -62,19 +63,26 @@ public class RegController {
 
     }
 
-    public void kilep(ActionEvent actionEvent) throws IOException {
+    @FXML
+    private void kilep(ActionEvent actionEvent) throws IOException {
         LoginController.megnyit(actionEvent);
     }
 
-    public void popup() throws IOException {
-        Parent p = FXMLLoader.load(getClass().getResource("successreg.fxml"));
-        Scene s = new Scene(p);
-        //stage információ
-        Stage window = new Stage();
-        window.setTitle("Sikeres regisztráció");
-
-
-        window.setScene(s);
-        window.show();
-    }
+//    private void popup(ActionEvent actionEvent) throws IOException {
+//        Parent p = FXMLLoader.load(getClass().getResource("successreg.fxml"));
+//        Scene s = new Scene(p);
+//
+//        //stage információ
+//        Stage window = new Stage();
+//        window.setScene(s);
+//        window.show();
+//        ok.setOnMouseClicked(event -> {
+//            try {
+//                window.close();
+//
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        });
+//    }
 }
