@@ -26,6 +26,8 @@ import java.util.ResourceBundle;
 
 public class Jelentkezes extends OpenFunctions implements Initializable {
 
+    private boolean elf1=true,elf2=true,elf3=true;
+
     public class tablaLista
     {
         String id;
@@ -63,7 +65,8 @@ public class Jelentkezes extends OpenFunctions implements Initializable {
         }
 
     }
-    
+
+    @FXML Label hibauzenet;
 
     @FXML
     TableView<tablaLista> table;
@@ -110,14 +113,17 @@ public class Jelentkezes extends OpenFunctions implements Initializable {
 
             while (app1.next())
             {
+                if (app1.getInt("accepted")==1) elf1=false;
                 oblist.add(new tablaLista(app1.getString("a.ID"),app1.getString("i.name"),app1.getString("i.city")));
             }
             while (app2.next())
             {
+                if (app2.getInt("accepted")==1) elf2=false;
                 oblist.add(new tablaLista(app2.getString("a.ID"),app2.getString("i.name"),app2.getString("i.city")));
             }
             while (app3.next())
             {
+                if (app3.getInt("accepted")==1) elf3=false;
                 oblist.add(new tablaLista(app3.getString("a.ID"),app3.getString("i.name"),app3.getString("i.city")));
             }
             jelentkezesekSzama=oblist.size();
@@ -140,19 +146,30 @@ public class Jelentkezes extends OpenFunctions implements Initializable {
 
 
     public void newApp(ActionEvent actionEvent) throws IOException {
-        if (jelentkezesekSzama<3) JelentkezesiLap.megnyit(actionEvent);
+        if (jelentkezesekSzama<3)
+        {
+            if (elf1 && elf2 && elf3) {
+                JelentkezesiLap.megnyit(actionEvent);
+            }else {
+                hibauzenet.setText("Már van elfogadott jelentkezésed.");
+            }
+        }else{
+            hibauzenet.setText("A jelentkezéseid száma elérte a maximumot.");
+        }
     }
 
     public void delete(ActionEvent actionEvent) throws SQLException {
-        try {
-            tablaLista a = table.getSelectionModel().getSelectedItem();
-            con.createStatement().executeUpdate("DELETE FROM applications WHERE ID=" + a.getId());
-            refresh();
-        }catch(Exception ex){ }
+        if (elf1 && elf2 && elf3) {
+            try {
+                tablaLista a = table.getSelectionModel().getSelectedItem();
+                con.createStatement().executeUpdate("DELETE FROM applications WHERE ID=" + a.getId());
+                refresh();
+            } catch (Exception ex) {
+            }
+        }else hibauzenet.setText("Már van elfogadott jelentkezésed.");
     }
 
-    public void update()
-    {
-        refresh();
-    }
+
+
+
 }

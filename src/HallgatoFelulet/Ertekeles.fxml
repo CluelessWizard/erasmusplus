@@ -2,10 +2,131 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
 <Pane id="mainmenu" fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="722.0" style="-fx-background-color: #262626;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HallgatoFelulet.Ertekeles">
     <children>
+      <ScrollPane layoutX="-3.0" layoutY="74.0" prefHeight="352.0" prefWidth="725.0" style="-fx-background-color: #262626;">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="737.0" prefWidth="706.0" style="-fx-background-color: #262626;">
+               <children>
+                  <Label layoutX="84.0" layoutY="6.0" text="Kérjük vedd figyelembe, hogy csak akkor van lehetőséged értékelésre, ha már részt vettél a programban." textFill="WHITE" />
+                  <Label layoutX="133.0" layoutY="31.0" text="Az értékelés teljesen anonim, kizárólag a hallgató társaid érdekeit szolgálja a kitöltése." textFill="WHITE" />
+                  <TextField fx:id="ertekeltVaros" editable="false" layoutX="104.0" layoutY="88.0" />
+                  <Label layoutX="133.0" layoutY="62.0" text="Az értékelt város" textFill="WHITE" />
+                  <Label layoutX="497.0" layoutY="62.0" text="Az értékelt egyetem" textFill="WHITE" />
+                  <TextField fx:id="ertekeltEgyetem" editable="false" layoutX="476.0" layoutY="88.0" />
+                  <Label layoutX="172.0" layoutY="157.0" text="1. Az adott város sokkal költségesebb hazánknál." textFill="WHITE">
+                     <font>
+                        <Font name="Arial Black" size="14.0" />
+                     </font>
+                  </Label>
+                  <Circle fill="#262626" layoutX="360.0" layoutY="212.0" radius="12.0" stroke="WHITE" strokeLineCap="ROUND" strokeType="INSIDE" />
+                  <Circle fill="#262626" layoutX="400.0" layoutY="212.0" radius="16.0" stroke="#ff00a6" strokeLineCap="ROUND" strokeType="INSIDE" />
+                  <Circle fill="#262626" layoutX="450.0" layoutY="212.0" radius="21.0" stroke="#ff00a6" strokeLineCap="ROUND" strokeType="INSIDE" />
+                  <Circle fill="#262626" layoutX="510.0" layoutY="212.0" radius="24.0" stroke="#ff00a6" strokeLineCap="ROUND" strokeType="INSIDE" />
+                  <Circle fill="#262626" layoutX="320.0" layoutY="212.0" radius="16.0" stroke="LIME" strokeLineCap="ROUND" strokeType="INSIDE" />
+                  <Circle fill="#262626" layoutX="270.0" layoutY="212.0" radius="21.0" stroke="LIME" strokeLineCap="ROUND" strokeType="INSIDE" />
+                  <Circle fill="#262626" layoutX="210.0" layoutY="212.0" radius="24.0" stroke="LIME" strokeLineCap="ROUND" strokeType="INSIDE" />
+                  <Label layoutX="183.0" layoutY="249.0" text="2. Az adott városban sokan beszélnek angolul." textFill="WHITE">
+                     <font>
+                        <Font name="Arial Black" size="14.0" />
+                     </font>
+                  </Label>
+                  <Circle fill="#262626" layoutX="360.0" layoutY="304.0" radius="12.0" stroke="WHITE" strokeLineCap="ROUND" strokeType="INSIDE" />
+                  <Circle fill="#262626" layoutX="320.0" layoutY="304.0" radius="16.0" stroke="LIME" strokeLineCap="ROUND" strokeType="INSIDE" />
+                  <Circle fill="#262626" layoutX="270.0" layoutY="304.0" radius="21.0" stroke="LIME" strokeLineCap="ROUND" strokeType="INSIDE" />
+                  <Circle fill="#262626" layoutX="210.0" layoutY="304.0" radius="24.0" stroke="LIME" strokeLineCap="ROUND" strokeType="INSIDE" />
+                  <Circle fill="#262626" layoutX="400.0" layoutY="304.0" radius="16.0" stroke="#ff00a6" strokeLineCap="ROUND" strokeType="INSIDE" />
+                  <Circle fill="#262626" layoutX="450.0" layoutY="304.0" radius="21.0" stroke="#ff00a6" strokeLineCap="ROUND" strokeType="INSIDE" />
+                  <Circle fill="#262626" layoutX="510.0" layoutY="304.0" radius="24.0" stroke="#ff00a6" strokeLineCap="ROUND" strokeType="INSIDE" />
+                  <Label layoutX="184.0" layoutY="340.0" text="3. Az adott városban rengeteg a látványosság." textFill="WHITE">
+                     <font>
+                        <Font name="Arial Black" size="14.0" />
+                     </font>
+                  </Label>
+                  <Circle fill="#262626" layoutX="360.0" layoutY="404.0" radius="12.0" stroke="WHITE" strokeLineCap="ROUND" strokeType="INSIDE" />
+                  <Circle fill="#262626" layoutX="400.0" layoutY="404.0" radius="16.0" stroke="#ff00a6" strokeLineCap="ROUND" strokeType="INSIDE" />
+                  <Circle fill="#262626" layoutX="450.0" layoutY="404.0" radius="21.0" stroke="#ff00a6" strokeLineCap="ROUND" strokeType="INSIDE" />
+                  <Circle fill="#262626" layoutX="510.0" layoutY="404.0" radius="24.0" stroke="#ff00a6" strokeLineCap="ROUND" strokeType="INSIDE" />
+                  <Circle fill="#262626" layoutX="320.0" layoutY="404.0" radius="16.0" stroke="LIME" strokeLineCap="ROUND" strokeType="INSIDE" />
+                  <Circle fill="#262626" layoutX="270.0" layoutY="404.0" radius="21.0" stroke="LIME" strokeLineCap="ROUND" strokeType="INSIDE" />
+                  <Circle fill="#262626" layoutX="210.0" layoutY="404.0" radius="24.0" stroke="LIME" strokeLineCap="ROUND" strokeType="INSIDE" />
+                  <Label layoutX="156.0" layoutY="443.0" text="4. Az adott egyetemen magas színvonalú oktatás volt" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Black" size="14.0" />
+                     </font>
+                  </Label>
+                  <Circle fill="#262626" layoutX="359.0" layoutY="502.0" radius="12.0" stroke="WHITE" strokeLineCap="ROUND" strokeType="INSIDE" />
+                  <Circle fill="#262626" layoutX="400.0" layoutY="502.0" radius="16.0" stroke="#ff00a6" strokeLineCap="ROUND" strokeType="INSIDE" />
+                  <Circle fill="#262626" layoutX="450.0" layoutY="502.0" radius="21.0" stroke="#ff00a6" strokeLineCap="ROUND" strokeType="INSIDE" />
+                  <Circle fill="#262626" layoutX="510.0" layoutY="502.0" radius="24.0" stroke="#ff00a6" strokeLineCap="ROUND" strokeType="INSIDE" />
+                  <Circle fill="#262626" layoutX="320.0" layoutY="502.0" radius="16.0" stroke="LIME" strokeLineCap="ROUND" strokeType="INSIDE" />
+                  <Circle fill="#262626" layoutX="270.0" layoutY="502.0" radius="21.0" stroke="LIME" strokeLineCap="ROUND" strokeType="INSIDE" />
+                  <Circle fill="#262626" layoutX="210.0" layoutY="502.0" radius="24.0" stroke="LIME" strokeLineCap="ROUND" strokeType="INSIDE" />
+                  <Label layoutX="181.0" layoutY="540.0" text="5. Szívesen ajánlanám másoknak az egyetemet" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Black" size="14.0" />
+                     </font>
+                  </Label>
+                  <Circle fill="#262626" layoutX="361.0" layoutY="591.0" radius="12.0" stroke="WHITE" strokeLineCap="ROUND" strokeType="INSIDE" />
+                  <Circle fill="#262626" layoutX="400.0" layoutY="591.0" radius="16.0" stroke="#ff00a6" strokeLineCap="ROUND" strokeType="INSIDE" />
+                  <Circle fill="#262626" layoutX="450.0" layoutY="591.0" radius="21.0" stroke="#ff00a6" strokeLineCap="ROUND" strokeType="INSIDE" />
+                  <Circle fill="#262626" layoutX="510.0" layoutY="591.0" radius="24.0" stroke="#ff00a6" strokeLineCap="ROUND" strokeType="INSIDE" />
+                  <Circle fill="#262626" layoutX="320.0" layoutY="591.0" radius="16.0" stroke="LIME" strokeLineCap="ROUND" strokeType="INSIDE" />
+                  <Circle fill="#262626" layoutX="270.0" layoutY="591.0" radius="21.0" stroke="LIME" strokeLineCap="ROUND" strokeType="INSIDE" />
+                  <Circle fill="#262626" layoutX="210.0" layoutY="591.0" radius="24.0" stroke="LIME" strokeLineCap="ROUND" strokeType="INSIDE" />
+                  <Button layoutX="332.0" layoutY="663.0" mnemonicParsing="false" onAction="#mentes" text="Mentés" />
+                  <Label layoutX="84.0" layoutY="204.0" text="Egyetértek" textFill="LIME" />
+                  <Label layoutX="575.0" layoutY="204.0" text="Nem értek egyet" textFill="#ff00a6" />
+                  <Label layoutX="575.0" layoutY="296.0" text="Nem értek egyet" textFill="#ff00a6" />
+                  <Label layoutX="84.0" layoutY="296.0" text="Egyetértek" textFill="LIME" />
+                  <Label layoutX="84.0" layoutY="396.0" text="Egyetértek" textFill="LIME" />
+                  <Label layoutX="84.0" layoutY="494.0" text="Egyetértek" textFill="LIME" />
+                  <Label layoutX="575.0" layoutY="396.0" text="Nem értek egyet" textFill="#ff00a6" />
+                  <Label layoutX="575.0" layoutY="494.0" text="Nem értek egyet" textFill="#ff00a6" />
+                  <Label layoutX="84.0" layoutY="583.0" text="Egyetértek" textFill="LIME" />
+                  <Label layoutX="575.0" layoutY="583.0" text="Nem értek egyet" textFill="#ff00a6" />
+                  <ToggleButton fx:id="FirstPB" layoutX="187.0" layoutY="189.0" mnemonicParsing="false" stylesheets="@../StyleResources/PositiveBig.css" />
+                  <ToggleButton fx:id="SecondPB" layoutX="187.0" layoutY="281.0" mnemonicParsing="false" stylesheets="@../StyleResources/PositiveBig.css" />
+                  <ToggleButton fx:id="ThirdPB" layoutX="187.0" layoutY="381.0" mnemonicParsing="false" stylesheets="@../StyleResources/PositiveBig.css" />
+                  <ToggleButton fx:id="FourthPB" layoutX="187.0" layoutY="479.0" mnemonicParsing="false" stylesheets="@../StyleResources/PositiveBig.css" />
+                  <ToggleButton fx:id="FifthPB" layoutX="187.0" layoutY="568.0" mnemonicParsing="false" stylesheets="@../StyleResources/PositiveBig.css" />
+                  <ToggleButton fx:id="FirstPM" layoutX="250.0" layoutY="192.0" mnemonicParsing="false" stylesheets="@../StyleResources/PositiveMedium.css" />
+                  <ToggleButton fx:id="SecondPM" layoutX="250.0" layoutY="284.0" mnemonicParsing="false" stylesheets="@../StyleResources/PositiveMedium.css" />
+                  <ToggleButton fx:id="ThirdPM" layoutX="250.0" layoutY="384.0" mnemonicParsing="false" stylesheets="@../StyleResources/PositiveMedium.css" />
+                  <ToggleButton fx:id="FourthPM" layoutX="250.0" layoutY="482.0" mnemonicParsing="false" stylesheets="@../StyleResources/PositiveMedium.css" />
+                  <ToggleButton fx:id="FifthPM" layoutX="250.0" layoutY="571.0" mnemonicParsing="false" stylesheets="@../StyleResources/PositiveMedium.css" />
+                  <ToggleButton fx:id="FirstPS" layoutX="305.0" layoutY="197.0" mnemonicParsing="false" stylesheets="@../StyleResources/PositiveSmall.css" />
+                  <ToggleButton fx:id="SecondPS" layoutX="305.0" layoutY="289.0" mnemonicParsing="false" stylesheets="@../StyleResources/PositiveSmall.css" />
+                  <ToggleButton fx:id="ThirdPS" layoutX="305.0" layoutY="389.0" mnemonicParsing="false" stylesheets="@../StyleResources/PositiveSmall.css" />
+                  <ToggleButton fx:id="FourthPS" layoutX="305.0" layoutY="487.0" mnemonicParsing="false" stylesheets="@../StyleResources/PositiveSmall.css" />
+                  <ToggleButton fx:id="FifthPS" layoutX="305.0" layoutY="576.0" mnemonicParsing="false" stylesheets="@../StyleResources/PositiveSmall.css" />
+                  <ToggleButton fx:id="FirstNS" layoutX="385.0" layoutY="197.0" mnemonicParsing="false" stylesheets="@../StyleResources/NegativeSmall.css" />
+                  <ToggleButton fx:id="SecondNS" layoutX="385.0" layoutY="289.0" mnemonicParsing="false" stylesheets="@../StyleResources/NegativeSmall.css" />
+                  <ToggleButton fx:id="ThirdNS" layoutX="385.0" layoutY="389.0" mnemonicParsing="false" stylesheets="@../StyleResources/NegativeSmall.css" />
+                  <ToggleButton fx:id="FourthNS" layoutX="385.0" layoutY="487.0" mnemonicParsing="false" stylesheets="@../StyleResources/NegativeSmall.css" />
+                  <ToggleButton fx:id="FifthNS" layoutX="385.0" layoutY="576.0" mnemonicParsing="false" stylesheets="@../StyleResources/NegativeSmall.css" />
+                  <ToggleButton fx:id="FirstNM" layoutX="430.0" layoutY="192.0" mnemonicParsing="false" stylesheets="@../StyleResources/NegativeMedium.css" />
+                  <ToggleButton fx:id="SecondNM" layoutX="430.0" layoutY="284.0" mnemonicParsing="false" stylesheets="@../StyleResources/NegativeMedium.css" />
+                  <ToggleButton fx:id="ThirdNM" layoutX="430.0" layoutY="384.0" mnemonicParsing="false" stylesheets="@../StyleResources/NegativeMedium.css" />
+                  <ToggleButton fx:id="FourthNM" layoutX="430.0" layoutY="482.0" mnemonicParsing="false" stylesheets="@../StyleResources/NegativeMedium.css" />
+                  <ToggleButton fx:id="FifthNM" layoutX="430.0" layoutY="571.0" mnemonicParsing="false" stylesheets="@../StyleResources/NegativeMedium.css" />
+                  <ToggleButton fx:id="FirstNB" layoutX="487.0" layoutY="189.0" mnemonicParsing="false" stylesheets="@../StyleResources/NegativeBig.css" />
+                  <ToggleButton fx:id="SecondNB" layoutX="487.0" layoutY="281.0" mnemonicParsing="false" stylesheets="@../StyleResources/NegativeBig.css" />
+                  <ToggleButton fx:id="ThirdNB" layoutX="487.0" layoutY="381.0" mnemonicParsing="false" stylesheets="@../StyleResources/NegativeBig.css" />
+                  <ToggleButton fx:id="FourthNB" layoutX="487.0" layoutY="479.0" mnemonicParsing="false" stylesheets="@../StyleResources/NegativeBig.css" />
+                  <ToggleButton fx:id="FifthNB" layoutX="487.0" layoutY="568.0" mnemonicParsing="false" stylesheets="@../StyleResources/NegativeBig.css" />
+                  <ToggleButton fx:id="FirstNeut" layoutX="349.0" layoutY="201.0" mnemonicParsing="false" stylesheets="@../StyleResources/Neutral.css" />
+                  <ToggleButton fx:id="SecondNeut" layoutX="349.0" layoutY="293.0" mnemonicParsing="false" stylesheets="@../StyleResources/Neutral.css" />
+                  <ToggleButton fx:id="ThirdNeut" layoutX="349.0" layoutY="393.0" mnemonicParsing="false" stylesheets="@../StyleResources/Neutral.css" />
+                  <ToggleButton fx:id="FourthNeut" layoutX="348.0" layoutY="491.0" mnemonicParsing="false" stylesheets="@../StyleResources/Neutral.css" />
+                  <ToggleButton fx:id="FifthNeut" layoutX="350.0" layoutY="580.0" mnemonicParsing="false" stylesheets="@../StyleResources/Neutral.css" />
+                  <Label fx:id="hibauzenet" layoutX="271.0" layoutY="629.0" textFill="RED" />
+               </children></AnchorPane>
+        </content>
+      </ScrollPane>
         <Button onAction="#mainmenuOpen" prefHeight="34.0" prefWidth="97.0" stylesheets="@../StyleResources/gombstilus.css" text="Főoldal" textFill="WHITE" />
         <Button layoutX="97.0" mnemonicParsing="false" onAction="#egyetemOpen" prefHeight="34.0" prefWidth="97.0" stylesheets="@../StyleResources/gombstilus.css" text="Egyetemek" textFill="WHITE" />
         <Button layoutX="194.0" mnemonicParsing="false" onAction="#jelentkezesOpen" prefHeight="34.0" prefWidth="97.0" stylesheets="@../StyleResources/gombstilus.css" text="Jelentkezés" textFill="WHITE" />
@@ -14,7 +135,7 @@
                 <Font name="Arial Black" size="18.0" />
             </font>
         </Label>
-        <Button layoutX="626.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="97.0" stylesheets="@../StyleResources/gombstilus.css" text="Kijelentkezés" textFill="WHITE" onAction="#kijelentkezes"/>
+        <Button layoutX="626.0" mnemonicParsing="false" onAction="#kijelentkezes" prefHeight="34.0" prefWidth="97.0" stylesheets="@../StyleResources/gombstilus.css" text="Kijelentkezés" textFill="WHITE" />
         <Button layoutX="483.0" mnemonicParsing="false" onAction="#adatokOpen" prefHeight="34.0" prefWidth="130.0" stylesheets="@../StyleResources/gombstilus.css" text="Személyes adatok" textFill="WHITE" />
         <Button layoutX="291.0" mnemonicParsing="false" onAction="#ertekelesOpen" prefHeight="34.0" prefWidth="97.0" stylesheets="@../StyleResources/gombstilus.css" text="Értékelés" textFill="WHITE" />
     </children>

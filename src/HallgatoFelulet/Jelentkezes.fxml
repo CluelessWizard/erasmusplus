@@ -24,13 +24,15 @@
       </Label>
       <Button fx:id="newApp" layoutX="254.0" layoutY="150.0" mnemonicParsing="false" onAction="#newApp" prefHeight="34.0" prefWidth="65.0" text="Új" />
       <Button fx:id="delete" layoutX="254.0" layoutY="200.0" mnemonicParsing="false" onAction="#delete" prefHeight="34.0" prefWidth="65.0" text="Törlés" />
-      <Button layoutX="20.0" layoutY="340.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="76.0" text="Részletek" />
-      <TableView fx:id="table" layoutX="19.0" layoutY="147.0" prefHeight="176.0" prefWidth="218.0" stylesheets="@../StyleResources/newLista.css">
+      <Button layoutX="20.0" layoutY="320.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="76.0" text="Részletek" />
+      <TableView fx:id="table" layoutX="19.0" layoutY="147.0" prefHeight="163.0" prefWidth="218.0" stylesheets="@../StyleResources/newLista.css">
         <columns>
-          <TableColumn fx:id="jelentkezesID" editable="false" minWidth="0.0" prefWidth="0.0" text="id" />
-          <TableColumn fx:id="jelEgyetem" editable="false" prefWidth="110.0" text="Egyetem" />
-            <TableColumn fx:id="jelVaros" editable="false" prefWidth="106.0" text="Város" />
+          <TableColumn fx:id="jelentkezesID" editable="false" minWidth="0.0" prefWidth="0.0" resizable="false" text="id" />
+          <TableColumn fx:id="jelEgyetem" editable="false" prefWidth="110.0" resizable="false" text="Egyetem" />
+            <TableColumn fx:id="jelVaros" editable="false" prefWidth="106.0" resizable="false" text="Város" />
         </columns>
       </TableView>
+      <Label layoutX="20.0" layoutY="83.0" text="Jelentkezés előtt add meg a személyes adataid." textFill="WHITE" />
+      <Label fx:id="hibauzenet" layoutX="114.0" layoutY="369.0" textFill="RED" />
     </children>
 </Pane>

@@ -6,6 +6,8 @@ import javafx.event.ActionEvent;
 import java.io.IOException;
 
 public class OpenFunctions {
+
+
     public void mainmenuOpen(ActionEvent actionEvent) throws IOException {
         StudentMain.megnyit(actionEvent);
     }
@@ -28,6 +30,6 @@ public class OpenFunctions {
 
     public void kijelentkezes(ActionEvent actionEvent) throws Exception {
         new LoginController().megnyit(actionEvent);
-
     }
+
 }

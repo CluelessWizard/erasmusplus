@@ -146,29 +146,37 @@ public class Jelentkezesek implements Initializable {
                         "nincs","nincs"));
             }
 
-            int i=0;
 
             while (university1.next()) {
-
-                tmp.get(i).setEgyetem1(university1.getString("i.name"));
-                i++;
+                for (int i=0;i<tmp.size();i++)
+                {
+                    if (tmp.get(i).getNeptun().equals(university1.getString("s.neptun")))
+                    {
+                        tmp.get(i).setEgyetem1(university1.getString("i.name"));
+                    }
+                }
             }
 
-            i=0;
 
             while (university2.next()) {
-
-                tmp.get(i).setEgyetem2(university2.getString("i.name"));
-                i++;
+                for (int i=0;i<tmp.size();i++)
+                {
+                    if (tmp.get(i).getNeptun().equals(university2.getString("s.neptun")))
+                    {
+                        tmp.get(i).setEgyetem2(university2.getString("i.name"));
+                    }
+                }
             }
 
-            i=0;
 
             while (university3.next()) {
-
-                tmp.get(i).setEgyetem3(university3.getString("i.name"));
-                i++;
-
+                for (int i=0;i<tmp.size();i++)
+                {
+                    if (tmp.get(i).getNeptun().equals(university3.getString("s.neptun")))
+                    {
+                        tmp.get(i).setEgyetem3(university3.getString("i.name"));
+                    }
+                }
             }
 
             for (HallgatoJelentkezesei s:tmp)

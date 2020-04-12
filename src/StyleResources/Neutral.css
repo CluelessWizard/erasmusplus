@@ -1,0 +1,19 @@
+.toggle-button
+{
+        -fx-background-radius: 5em;
+        -fx-min-width: 22px;
+        -fx-min-height: 22px;
+        -fx-max-width: 22px;
+        -fx-max-height: 22px;
+        -fx-background-color: #262626;
+        -fx-background-insets: 0px;
+        -fx-padding: 0px;
+}
+
+.toggle-button:hover {
+    -fx-background-color: #cccccc;
+}
+
+.toggle-button:selected {
+    -fx-background-color: #cccccc;
+}
