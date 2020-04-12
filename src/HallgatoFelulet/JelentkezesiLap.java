@@ -79,36 +79,35 @@ public class JelentkezesiLap implements Initializable {
             //Tanulmányok beállítása
             con = dbconnection.getConn();
             ResultSet degree=con.createStatement().executeQuery("SELECT * FROM students s JOIN degrees d ON s.degree=d.ID WHERE neptun='"+ LoginController.getUsername()+"'");
+            String los = "";
 
-            while (degree.next())
-            {
-                String tmp="";
-                switch (degree.getString("levelOfStudy"))
-                {
+            while (degree.next()) {
+                String tmp = "";
+                los = degree.getString("levelOfStudy");
+                switch (los) {
                     case "1":
-                        tmp="BSc";
+                        tmp = "BSc";
                         break;
                     case "2":
-                        tmp="MSc";
+                        tmp = "MSc";
                         break;
                     case "3":
-                        tmp ="PhD";
+                        tmp = "PhD";
                         break;
-
                 }
                 tanulmany.setText(degree.getString("d.name")+" "+tmp);
-
-                //egyetemek beállítása
-                ResultSet university=con.createStatement().executeQuery("SELECT * FROM institutions");
-
-                ObservableList feltolt = FXCollections.observableArrayList();;
-                while (university.next())
-                {
-                    feltolt.add(university.getString("name")+", "+university.getString("city"));
-                }
-                feltolt.sort(Comparator.comparing( String::toString)) ;
-                egyetem.setItems(feltolt);
             }
+
+            //egyetemek beállítása
+            ResultSet university=con.createStatement().executeQuery("SELECT * FROM institutions WHERE levelOfStudy='"+los+"'");
+
+            ObservableList feltolt = FXCollections.observableArrayList();;
+            while (university.next())
+            {
+                feltolt.add(university.getString("name")+", "+university.getString("city"));
+            }
+            feltolt.sort(Comparator.comparing( String::toString)) ;
+            egyetem.setItems(feltolt);
 
         } catch (SQLException e) {
             e.printStackTrace();

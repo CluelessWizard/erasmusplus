@@ -4,44 +4,42 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #262626;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.RegController">
-    <children>
-        <Label layoutX="88.0" layoutY="96.0" text="Neptunkód:" textFill="WHITE">
-            <font>
-                <Font name="Arial Black" size="18.0" />
-            </font>
-        </Label>
-        <TextField fx:id="name" layoutX="336.0" layoutY="44.0" prefHeight="25.0" prefWidth="178.0" />
-        <Label layoutX="87.0" layoutY="43.0" text="Név:" textFill="WHITE">
-            <font>
-                <Font name="Arial Black" size="18.0" />
-            </font>
-        </Label>
-        <TextField fx:id="neptun" layoutX="336.0" layoutY="97.0" prefHeight="25.0" prefWidth="178.0" />
-        <Label layoutX="88.0" layoutY="200.0" text="Jelszó:" textFill="WHITE">
-            <font>
-                <Font name="Arial Black" size="18.0" />
-            </font>
-        </Label>
-        <Button fx:id="mentes" layoutX="91.0" layoutY="322.0" mnemonicParsing="false" onAction="#save" prefHeight="48.0" prefWidth="108.0" text="Mentés" />
-        <Button fx:id="megse" layoutX="412.0" layoutY="322.0" mnemonicParsing="false" onAction="#kilep" prefHeight="48.0" prefWidth="108.0" text="Mégse" />
-      <Label layoutX="87.0" layoutY="148.0" text="Email:" textFill="WHITE">
-         <font>
+<AnchorPane prefHeight="390.0" prefWidth="533.0" style="-fx-background-color: #262626;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.RegController">
+    <Label layoutX="66.0" layoutY="96.0" text="Neptunkód:" textFill="WHITE">
+        <font>
             <Font name="Arial Black" size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="88.0" layoutY="248.0" text="Jelszó újra:" textFill="WHITE">
-         <font>
+        </font>
+    </Label>
+    <TextField fx:id="name" layoutX="269.0" layoutY="43.0" prefHeight="25.0" prefWidth="200.0" />
+    <Label layoutX="65.0" layoutY="43.0" text="Név:" textFill="WHITE">
+        <font>
             <Font name="Arial Black" size="18.0" />
-         </font>
-      </Label>
-      <TextField fx:id="email" layoutX="336.0" layoutY="149.0" prefHeight="25.0" prefWidth="178.0" />
-      <PasswordField fx:id="jelszo1" layoutX="336.0" layoutY="201.0" prefHeight="25.0" prefWidth="178.0" />
-      <PasswordField fx:id="jelszo2" layoutX="336.0" layoutY="249.0" prefHeight="25.0" prefWidth="178.0" />
-      <Label fx:id="uzenet" layoutX="229.0" layoutY="286.0" textFill="WHITE">
-         <font>
+        </font>
+    </Label>
+    <TextField fx:id="neptun" layoutX="269.0" layoutY="96.0" prefHeight="25.0" prefWidth="200.0" />
+    <Label layoutX="65.0" layoutY="199.0" text="Jelszó:" textFill="WHITE">
+        <font>
+            <Font name="Arial Black" size="18.0" />
+        </font>
+    </Label>
+    <Label layoutX="65.0" layoutY="148.0" text="Email:" textFill="WHITE">
+        <font>
+            <Font name="Arial Black" size="18.0" />
+        </font>
+    </Label>
+    <Label layoutX="64.0" layoutY="247.0" text="Jelszó újra:" textFill="WHITE">
+        <font>
+            <Font name="Arial Black" size="18.0" />
+        </font>
+    </Label>
+    <TextField fx:id="email" layoutX="269.0" layoutY="148.0" prefHeight="25.0" prefWidth="200.0" />
+    <PasswordField fx:id="jelszo1" layoutX="269.0" layoutY="200.0" prefHeight="25.0" prefWidth="200.0" />
+    <PasswordField fx:id="jelszo2" layoutX="269.0" layoutY="248.0" prefHeight="25.0" prefWidth="200.0" />
+    <Label fx:id="uzenet" layoutX="135.0" layoutY="286.0" prefHeight="20.0" prefWidth="289.0" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+        <font>
             <Font name="Arial Black" size="13.0" />
-         </font>
-      </Label>
-    </children>
+        </font>
+    </Label>
+    <Button layoutX="100.0" layoutY="321.0" mnemonicParsing="false" onAction="#save" prefHeight="48.0" prefWidth="108.0" text="Mentés" />
+    <Button layoutX="315.0" layoutY="321.0" mnemonicParsing="false" onAction="#kilep" prefHeight="48.0" prefWidth="108.0" text="Mégse" />
 </AnchorPane>
