@@ -4,6 +4,7 @@ import AdminFelulet.adminmenuController;
 import HallgatoFelulet.OpenFunctions;
 import HallgatoFelulet.StudentMain;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -19,19 +20,14 @@ import java.util.HashMap;
 
 public class LoginController extends OpenFunctions {
 
-    public Label info;
-    public PasswordField pw;
-    public TextField user;
+    @FXML
+    Label info;
+    @FXML
+    PasswordField pw;
+    @FXML
+    TextField user;
 
     private static String username;
-    private static String password;
-
-    public static String getUsername() { return username; }
-
-//    public String getPassword() { return password; }
-
-    Scene scene1;
-
     static HashMap<String, String> userpass = new HashMap<>();
     static HashMap<String, String> userRole = new HashMap<>();
 
@@ -43,11 +39,13 @@ public class LoginController extends OpenFunctions {
         }
     }
 
+    public static String getUsername() { return username; }
+
     public void login(ActionEvent actionEvent) throws IOException {
 
         dbconnection.refresh();
         username=user.getText().toUpperCase();
-        password=pw.getText();
+        String password = pw.getText();
 
         if(userpass.containsKey(username)){
             if(userpass.get(username).equals(password)){
@@ -74,6 +72,7 @@ public class LoginController extends OpenFunctions {
     }
 
     public void mainmenuopen(ActionEvent actionEvent) throws IOException {
+
         Parent p = FXMLLoader.load(getClass().getResource("../MainMenu/mainmenu.fxml"));
         Scene s = new Scene(p);
 
@@ -85,7 +84,6 @@ public class LoginController extends OpenFunctions {
     }
 
     public static void megnyit(ActionEvent actionEvent) throws IOException {
-
 
         Parent p = FXMLLoader.load(LoginController.class.getResource("login.fxml"));
         Scene s = new Scene(p);
