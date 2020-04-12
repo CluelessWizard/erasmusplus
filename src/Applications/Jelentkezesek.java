@@ -200,7 +200,6 @@ public class Jelentkezesek implements Initializable {
         {
             table.setPlaceholder(new Label("Nincsenek jelentkezések az adatbázisban"));
         }
-
         else
         {
             table.setItems(oblist);

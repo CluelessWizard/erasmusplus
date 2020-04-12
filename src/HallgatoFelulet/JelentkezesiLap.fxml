@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="600.0" style="-fx-background-color: #262626;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HallgatoFelulet.JelentkezesiLap">
+  <content>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="829.0" prefWidth="583.0" style="-fx-background-color: #262626;">
+         <children>
+            <Label layoutX="240.0" layoutY="1.0" text="Erasmus+ " textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="233.0" layoutY="28.0" text="Jelentkezési lap" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="semester" layoutX="264.0" layoutY="48.0" text="2020/21 " textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="180.0" layoutY="82.0" text="Küldő intézmény: Pannon Egyeten" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="124.0" text="Az intézmény, ahová jelentkezni szeretnél:" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="159.0" text="Tématerület kódja:" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="tema" layoutX="333.0" layoutY="155.0" prefHeight="25.0" prefWidth="205.0" />
+            <Label layoutX="14.0" layoutY="192.0" text="Jelenlegi tanulmányok:" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="tanulmany" disable="true" editable="false" layoutX="333.0" layoutY="188.0" prefHeight="25.0" prefWidth="205.0" />
+            <ChoiceBox fx:id="egyetem" layoutX="333.0" layoutY="120.0" prefHeight="25.0" prefWidth="205.0" />
+            <ChoiceBox fx:id="targy1" layoutX="300.0" layoutY="263.0" prefHeight="10.0" prefWidth="238.0" />
+            <Label layoutX="182.0" layoutY="229.0" text="Előzetes tanulmányi/munkaterv" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="267.0" text="1. Tárgy:" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="297.0" text="2. Tárgy:" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <ChoiceBox fx:id="targy2" layoutX="300.0" layoutY="293.0" prefHeight="10.0" prefWidth="238.0" />
+            <Label layoutX="14.0" layoutY="327.0" text="3. Tárgy:" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <ChoiceBox fx:id="targy3" layoutX="300.0" layoutY="323.0" prefHeight="10.0" prefWidth="238.0" />
+            <ChoiceBox fx:id="targy4" layoutX="300.0" layoutY="353.0" prefHeight="10.0" prefWidth="238.0" />
+            <ChoiceBox fx:id="targy5" layoutX="300.0" layoutY="383.0" prefHeight="10.0" prefWidth="238.0" />
+            <ChoiceBox fx:id="targy6" layoutX="300.0" layoutY="413.0" prefHeight="10.0" prefWidth="238.0" />
+            <ChoiceBox fx:id="targy7" layoutX="300.0" layoutY="443.0" prefHeight="10.0" prefWidth="238.0" />
+            <ChoiceBox fx:id="targy8" layoutX="300.0" layoutY="473.0" prefHeight="10.0" prefWidth="238.0" />
+            <ChoiceBox fx:id="targy9" layoutX="300.0" layoutY="503.0" prefHeight="10.0" prefWidth="238.0" />
+            <ChoiceBox fx:id="targy11" layoutX="300.0" layoutY="533.0" prefHeight="10.0" prefWidth="238.0" />
+            <ChoiceBox fx:id="targy10" layoutX="300.0" layoutY="563.0" prefHeight="10.0" prefWidth="238.0" />
+            <Label layoutX="14.0" layoutY="357.0" text="4. Tárgy:" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="387.0" text="5. Tárgy:" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="417.0" text="6. Tárgy:" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="447.0" text="7. Tárgy:" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="477.0" text="8. Tárgy:" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="507.0" text="9. Tárgy:" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="537.0" text="10. Tárgy:" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="567.0" text="11. Tárgy:" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <ChoiceBox fx:id="targy12" layoutX="300.0" layoutY="593.0" prefHeight="10.0" prefWidth="238.0" />
+            <ChoiceBox fx:id="targy13" layoutX="300.0" layoutY="623.0" prefHeight="10.0" prefWidth="238.0" />
+            <ChoiceBox fx:id="targy14" layoutX="300.0" layoutY="653.0" prefHeight="10.0" prefWidth="238.0" />
+            <ChoiceBox fx:id="targy15" layoutX="300.0" layoutY="683.0" prefHeight="10.0" prefWidth="238.0" />
+            <Label layoutX="14.0" layoutY="597.0" text="12. Tárgy:" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="627.0" text="13. Tárgy:" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="657.0" text="14. Tárgy:" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="687.0" text="15. Tárgy:" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="hibauzenet" alignment="CENTER" contentDisplay="CENTER" layoutX="196.0" layoutY="781" prefHeight="20.0" prefWidth="203.0" textFill="RED">
+               <font>
+                  <Font name="Arial Black" size="10.0" />
+               </font>
+            </Label>
+            <CheckBox fx:id="csekk1" layoutX="180.0" layoutY="727.0" mnemonicParsing="false" text="Tudomásul veszem és elfogadom az ÁSZF-t" textFill="WHITE" />
+            <CheckBox fx:id="csekk2" layoutX="180.0" layoutY="755.0" mnemonicParsing="false" text="Aktív hallgatóként pályázom" textFill="WHITE" />
+            <Button fx:id="mentes" layoutX="77.0" layoutY="781.0" mnemonicParsing="false" onAction="#save" prefHeight="25.0" prefWidth="80.0" text="Jelentkezés"/>
+            <Button fx:id="megse" layoutX="425.0" layoutY="781.0" mnemonicParsing="false" onAction="#cancel" prefHeight="25.0" prefWidth="80.0" text="Mégse" />
+         </children></AnchorPane>
+  </content>
+</ScrollPane>
