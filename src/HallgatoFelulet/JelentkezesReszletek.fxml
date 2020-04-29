@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #262626;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HallgatoFelulet.JelentkezesReszletek">
+   <children>
+      <TableView fx:id="table" layoutX="76.0" layoutY="117.0" prefHeight="200.0" prefWidth="441.0" stylesheets="@../StyleResources/lista3.css">
+         <columns>
+            <TableColumn fx:id="name" editable="false" prefWidth="305.0" resizable="false" sortable="false" text="Tárgy név" />
+            <TableColumn fx:id="credit" editable="false" minWidth="0.0" prefWidth="135.0" resizable="false" sortable="false" text="Kredit" />
+            <TableColumn fx:id="id" editable="false" prefWidth="63.0" resizable="false" sortable="false" text="Column X" visible="false" />
+         </columns></TableView>
+      <Button layoutX="274.0" layoutY="345.0" mnemonicParsing="false" text="Kilépés" />
+      <Label layoutX="214.0" layoutY="14.0" text="Jelentkezés részletei" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="egyetem" editable="false" layoutX="81.0" layoutY="61.0" />
+      <TextField fx:id="varos" editable="false" layoutX="363.0" layoutY="61.0" />
+   </children>
+</AnchorPane>
