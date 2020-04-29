@@ -169,7 +169,33 @@ public class Jelentkezes extends OpenFunctions implements Initializable {
         }else hibauzenet.setText("Már van elfogadott jelentkezésed.");
     }
 
+    private static int selected_ID=0;
+    private static String selected_Egyetem=null;
 
+    public static String getSelected_Egyetem() {
+        return selected_Egyetem;
+    }
+
+    public static String getSelected_Varos() {
+        return selected_Varos;
+    }
+
+    private static String selected_Varos=null;
+
+    public static int getSelected_ID() {
+        return selected_ID;
+    }
+
+
+
+    public void reszletek(ActionEvent actionEvent) throws Exception {
+        selected_ID=Integer.parseInt(table.getSelectionModel().getSelectedItem().id);
+        selected_Varos=table.getSelectionModel().getSelectedItem().varos;
+        selected_Egyetem=table.getSelectionModel().getSelectedItem().egyetem;
+
+        if (selected_ID!=0)
+        reszletekOpen(actionEvent);
+    }
 
 
 }

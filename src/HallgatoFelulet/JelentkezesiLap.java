@@ -25,7 +25,13 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.ResourceBundle;
 
+
+
 public class JelentkezesiLap implements Initializable {
+
+    public void Exception(String message) {
+
+    }
 
     Connection con;
     @FXML
@@ -47,6 +53,7 @@ public class JelentkezesiLap implements Initializable {
     String chosenEgyetem="";
     String chosenVaros="";
     String chosenEgyetemID="0";
+    int kreditek=0;
 
     private List<String> osszestargy=new ArrayList<>();
 
@@ -70,8 +77,11 @@ public class JelentkezesiLap implements Initializable {
     }
 
 
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
 
         targySetinit();
 
@@ -99,9 +109,9 @@ public class JelentkezesiLap implements Initializable {
             }
 
             //egyetemek beállítása
-            ResultSet university=con.createStatement().executeQuery("SELECT * FROM institutions WHERE levelOfStudy='"+los+"'");
+            ResultSet university=con.createStatement().executeQuery("SELECT * FROM institutions");
 
-            ObservableList feltolt = FXCollections.observableArrayList();;
+            ObservableList feltolt = FXCollections.observableArrayList();
             while (university.next())
             {
                 feltolt.add(university.getString("name")+", "+university.getString("city"));
@@ -200,15 +210,12 @@ public class JelentkezesiLap implements Initializable {
                 //Kiválasztott tárgy ID-K lekérdezése
                 rs=con.createStatement().executeQuery("SELECT * FROM courses WHERE InstitutionID='"+chosenEgyetemID+"'");
                 String[] targyak=new String[15];
-                Boolean alltrue=true;
 
-                for (int i=0;i<chosenTargyak.length;i++)
-                {
-                    if (chosenTargyak[i].getSelectionModel().isEmpty())
-                    {
-                        throw new Exception();
-                    }
+                //targyak inicializálása
+                for (int i=0;i<targyak.length;i++){
+                    targyak[i]="null";
                 }
+
 
                 //Kiválasztott tárgy ID-k beállítása
                 while (rs.next())
@@ -218,9 +225,12 @@ public class JelentkezesiLap implements Initializable {
                         if (rs.getString("name").equals(chosenTargyak[i].getSelectionModel().getSelectedItem()))
                         {
                             targyak[i]=rs.getString("ID");
+                            kreditek+=rs.getInt("credit");
                         }
                     }
                 }
+
+                if (kreditek<16) throw new Exception("Keves kredit");
 
                 //Legnagyobb ID lekérdezése (ha ezt nem tesszük meg, akkor valamiért onnan folytatja a hozzáadást, ahol abbahagyta, akkor is ha már töröltük..
                 ResultSet utolsoID=con.createStatement().executeQuery("SELECT ID FROM applications ORDER BY ID desc LIMIT 1");
@@ -250,6 +260,8 @@ public class JelentkezesiLap implements Initializable {
                 }
                 con.createStatement().executeUpdate("UPDATE students SET "+a+"="+(lastID+1)+" WHERE neptun='"+LoginController.getUsername()+"'");
 
+                System.out.println("Kreditek: "+kreditek);
+
                 //mainscene frissítése
                 Jelentkezes.megnyit(kapottScene);
 
@@ -259,12 +271,18 @@ public class JelentkezesiLap implements Initializable {
                 stage.close();
 
             } catch (Exception ex) {
-                hibauzenet.setText("Hiányzó adatok");
+                if (ex.getMessage().equals("Keves kredit"))
+                {
+                    hibauzenet.setText("Legalább 16 kredit szükséges");
+                }
+                else hibauzenet.setText("Hiányzó adatok");
             }
         }else {
             hibauzenet.setText("Kérjük fogadd el a feltételeket.");
         }
     }
+
+
 
     public void cancel()
     {

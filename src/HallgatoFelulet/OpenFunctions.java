@@ -32,4 +32,10 @@ public class OpenFunctions {
         new LoginController().megnyit(actionEvent);
     }
 
+    public void reszletekOpen(ActionEvent actionEvent) throws Exception {
+        JelentkezesReszletek.megnyit(actionEvent);
+    }
+
+
+
 }

@@ -41,5 +41,5 @@
         </font>
     </Label>
     <Button layoutX="100.0" layoutY="321.0" mnemonicParsing="false" onAction="#save" prefHeight="48.0" prefWidth="108.0" text="Mentés" />
-    <Button layoutX="315.0" layoutY="321.0" mnemonicParsing="false" onAction="#kilep" prefHeight="48.0" prefWidth="108.0" text="Mégse" />
+    <Button layoutX="315.0" layoutY="321.0" mnemonicParsing="false" onAction="#megse" prefHeight="48.0" prefWidth="108.0" text="Mégse" />
 </AnchorPane>

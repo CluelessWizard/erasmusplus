@@ -107,7 +107,7 @@ public class Listazas  implements Initializable  {
         String sname=searchNameField.getText().toUpperCase();
 
         oblist.forEach((Student) -> {
-            if(Student.getNev().toUpperCase().equals(sname)) tmp.add(Student);
+            if(KMP_algoritmus.KMP(Student.getNev().toUpperCase(),sname)) tmp.add(Student);
         });
 
         table.setItems(tmp);
@@ -126,7 +126,7 @@ public class Listazas  implements Initializable  {
         String sname=searchNeptunField.getText().toUpperCase();
 
         oblist.forEach((Student) -> {
-            if(Student.getNeptun().equals(sname)) tmp.add(Student);
+            if(KMP_algoritmus.KMP(Student.getNeptun(),sname)) tmp.add(Student);
         });
 
         table.setItems(tmp);

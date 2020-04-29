@@ -65,10 +65,12 @@ public class RegController {
     }
 
     public void kilep(ActionEvent actionEvent) throws IOException {
-        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();;
-        stage.close();
         LoginController.megnyit(actionEvent);
         popup(actionEvent);
+    }
+
+    public void megse(ActionEvent actionEvent) throws IOException {
+        LoginController.megnyit(actionEvent);
     }
 
     public void popupkilep(ActionEvent actionEvent) throws IOException {
