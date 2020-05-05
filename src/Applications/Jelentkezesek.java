@@ -90,9 +90,9 @@ public class Jelentkezesek implements Initializable {
             } else {
                 ElfogadottSzama = 3;
             }
-            if (ElfogadottSzama == 1 && chosenOne.getEgyetem1()!="nincs") dbmanipulate();
-            else if (ElfogadottSzama == 2 && chosenOne.getEgyetem2()!="nincs") dbmanipulate();
-            else if (ElfogadottSzama == 3 && chosenOne.getEgyetem3()!="nincs") dbmanipulate();
+            if (ElfogadottSzama == 1 && chosenOne.getEgyetem1()!="nincs"){ dbmanipulate();    oblist.remove(table.getSelectionModel().getSelectedItem());}
+            else if (ElfogadottSzama == 2 && chosenOne.getEgyetem2()!="nincs"){ dbmanipulate();    oblist.remove(table.getSelectionModel().getSelectedItem());}
+            else if (ElfogadottSzama == 3 && chosenOne.getEgyetem3()!="nincs"){ dbmanipulate();    oblist.remove(table.getSelectionModel().getSelectedItem()); }
             else new popupController().hibauzenetopen();
         }
 
@@ -106,6 +106,8 @@ public class Jelentkezesek implements Initializable {
             con.createStatement().executeUpdate("UPDATE applications a JOIN students s ON s.applicationID2=a.ID JOIN institutions i ON a.institutionID=i.ID SET a.accepted=-1 WHERE i.name='" + chosenOne.getEgyetem2() + "' AND s.neptun='" + chosenOne.getNeptun() + "'");
             con.createStatement().executeUpdate("UPDATE applications a JOIN students s ON s.applicationID3=a.ID JOIN institutions i ON a.institutionID=i.ID SET a.accepted=-1 WHERE i.name='" + chosenOne.getEgyetem3() + "' AND s.neptun='" + chosenOne.getNeptun() + "'");
             new popupController().elutasit();
+
+            oblist.remove(table.getSelectionModel().getSelectedItem());
         }
     }
 
@@ -138,8 +140,8 @@ public class Jelentkezesek implements Initializable {
             university3 = con.createStatement().executeQuery("select * from students s JOIN Applications a ON s.applicationID3=a.ID JOIN institutions i ON i.ID=a.institutionID");
 
             ObservableList<HallgatoJelentkezesei> tmp = FXCollections.observableArrayList();
-            
-            
+
+
             while (rs.next())
             {
                 tmp.add(new HallgatoJelentkezesei(rs.getString("neptun"),rs.getString("name"),"nincs",
@@ -214,6 +216,8 @@ public class Jelentkezesek implements Initializable {
         }
 
     }
+
+
 
     public void kijelentkezes(ActionEvent actionEvent) throws Exception {
         new LoginController().megnyit(actionEvent);

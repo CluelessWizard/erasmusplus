@@ -12,7 +12,7 @@
             <TableColumn fx:id="credit" editable="false" minWidth="0.0" prefWidth="135.0" resizable="false" sortable="false" text="Kredit" />
             <TableColumn fx:id="id" editable="false" prefWidth="63.0" resizable="false" sortable="false" text="Column X" visible="false" />
          </columns></TableView>
-      <Button layoutX="274.0" layoutY="345.0" mnemonicParsing="false" text="Kilépés" />
+      <Button fx:id="kilepesgomb" layoutX="274.0" layoutY="345.0" mnemonicParsing="false" text="Kilépés" onAction="#exit"/>
       <Label layoutX="214.0" layoutY="14.0" text="Jelentkezés részletei" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />

@@ -6,6 +6,7 @@ import HallgatoFelulet.StudentMain;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -15,10 +16,12 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.HashMap;
+import java.util.ResourceBundle;
 
 
-public class LoginController extends OpenFunctions {
+public class LoginController extends OpenFunctions implements Initializable {
 
     @FXML
     Label info;
@@ -54,8 +57,10 @@ public class LoginController extends OpenFunctions {
                         StudentMain.megnyit(actionEvent);
                         break;
                     case "2":
-                    case "3":
                         mainmenuopen(actionEvent);
+                        break;
+                    case "3":
+                        DekanFelulet.MainmenuController.megnyit(actionEvent);
                         break;
                     case "4":
                         adminmenuController.megnyit(actionEvent);
@@ -93,5 +98,10 @@ public class LoginController extends OpenFunctions {
 
         window.setScene(s);
         window.show();
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        dbconnection.refresh();
     }
 }

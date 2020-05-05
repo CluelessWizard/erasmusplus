@@ -1,22 +1,15 @@
-package StudentList;
+package DekanFelulet;
 
-import Applications.Jelentkezesek;
-import StudentInformation.BovebbInfoController;
-import app.LoginController;
+import StudentList.Student;
 import app.dbconnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseButton;
-import javafx.scene.input.MouseEvent;
 
-import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -24,7 +17,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 
-public class Listazas  implements Initializable  {
+public class Listazas  extends FeluletValtas implements Initializable  {
     @FXML private TableView<Student> table;
     @FXML private TableColumn<Student,String> neptun;
     @FXML private TableColumn<Student,String> nev;
@@ -42,43 +35,21 @@ public class Listazas  implements Initializable  {
         return selectedforedit;
     }
 
-    public void dropdowncontext() {
-
-        table.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
-
-            @Override
-            public void handle(MouseEvent t) {
-                if (t.getButton() == MouseButton.SECONDARY) {
-                    cm.show(table, t.getScreenX(), t.getScreenY());
-                }
-            }
-        });
 
 
-
-    }
-
-
-    public void BovebbInformacio(javafx.event.ActionEvent actionEvent) throws IOException, SQLException {
-        selectedforedit = table.getSelectionModel().getSelectedItem();
-        new BovebbInfoController().megjelenites();
-    }
 
     ObservableList<Student> oblist= FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        dropdowncontext();
-
         try {
             Connection con= dbconnection.getConn();
-            ResultSet rs=con.createStatement().executeQuery("select * from students s JOIN users u ON s.neptun=u.neptun JOIN degrees d ON d.ID=s.degree");
+            ResultSet rs=con.createStatement().executeQuery("select * from students s JOIN users u ON s.neptun=u.neptun");
 
             while (rs.next())
             {
                 if (rs.getString("role").equals("1"))
-
-                oblist.add(new Student(rs.getString("name"),rs.getString("neptun"),rs.getString("mobile"),rs.getString("email"),rs.getString("d.name")));
+                oblist.add(new Student(rs.getString("name"),rs.getString("neptun"),rs.getString("mobile"),rs.getString("email"),rs.getString("degree")));
             }
 
         } catch (SQLException e) {
@@ -109,7 +80,7 @@ public class Listazas  implements Initializable  {
         String sname=searchNameField.getText().toUpperCase();
 
         oblist.forEach((Student) -> {
-            if(KMP_algoritmus.KMP(Student.getNev().toUpperCase(),sname)) tmp.add(Student);
+            if(StudentList.KMP_algoritmus.KMP(Student.getNev().toUpperCase(),sname)) tmp.add(Student);
         });
 
         table.setItems(tmp);
@@ -134,7 +105,7 @@ public class Listazas  implements Initializable  {
             String sname = searchNeptunField.getText().toUpperCase();
 
             oblist.forEach((Student) -> {
-                if (KMP_algoritmus.KMP(Student.getNeptun(), sname)) tmp.add(Student);
+                if (StudentList.KMP_algoritmus.KMP(Student.getNeptun(), sname)) tmp.add(Student);
             });
 
             table.setItems(tmp);
@@ -149,18 +120,6 @@ public class Listazas  implements Initializable  {
     }
 
 
-    public void mainmenumegnyit(ActionEvent actionEvent) throws IOException {
-        new LoginController().mainmenuopen(actionEvent);
-    }
 
-    public void Jelentkezesekopen(ActionEvent actionEvent) throws IOException {
-        new Jelentkezesek().Jelentkezesopen(actionEvent);
-    }
-
-
-    public void kijelentkezes(ActionEvent actionEvent) throws Exception {
-         new LoginController().megnyit(actionEvent);
-
-    }
 
 }

@@ -33,11 +33,21 @@ public class Jelentkezes extends OpenFunctions implements Initializable {
         String id;
         String egyetem;
         String varos;
+        String statusz;
 
-        public tablaLista(String id, String egyetem, String varos) {
+        public String getStatusz() {
+            return statusz;
+        }
+
+        public void setStatusz(String statusz) {
+            this.statusz = statusz;
+        }
+
+        public tablaLista(String id, String egyetem, String varos, String statusz) {
             this.id = id;
             this.egyetem = egyetem;
             this.varos = varos;
+            this.statusz = statusz;
         }
 
         public String getId() {
@@ -74,6 +84,7 @@ public class Jelentkezes extends OpenFunctions implements Initializable {
     @FXML TableColumn<tablaLista,String> jelentkezesID;
     @FXML TableColumn<tablaLista,String> jelEgyetem;
     @FXML TableColumn<tablaLista,String> jelVaros;
+    @FXML TableColumn<tablaLista,String> jelStatusz;
 
     private static int jelentkezesekSzama=0;
 
@@ -111,20 +122,27 @@ public class Jelentkezes extends OpenFunctions implements Initializable {
             ResultSet app2=con.createStatement().executeQuery("SELECT * FROM students s JOIN applications a ON s.ApplicationID2=a.ID JOIN institutions i ON i.ID=a.institutionID WHERE s.neptun='"+ LoginController.getUsername()+"'");
             ResultSet app3=con.createStatement().executeQuery("SELECT * FROM students s JOIN applications a ON s.ApplicationID3=a.ID JOIN institutions i ON i.ID=a.institutionID WHERE s.neptun='"+ LoginController.getUsername()+"'");
 
+            String st="";
             while (app1.next())
             {
-                if (app1.getInt("accepted")==1) elf1=false;
-                oblist.add(new tablaLista(app1.getString("a.ID"),app1.getString("i.name"),app1.getString("i.city")));
+                if (app1.getInt("accepted")==1){ elf1=false; st="Elfogadva";}
+                else if (app1.getInt("accepted")==-1){st="Elutasítva";}
+                else st="Függőben";
+                oblist.add(new tablaLista(app1.getString("a.ID"),app1.getString("i.name"),app1.getString("i.city"),st));
             }
             while (app2.next())
             {
-                if (app2.getInt("accepted")==1) elf2=false;
-                oblist.add(new tablaLista(app2.getString("a.ID"),app2.getString("i.name"),app2.getString("i.city")));
+                if (app2.getInt("accepted")==1){ elf2=false; st="Elfogadva";}
+                else if (app2.getInt("accepted")==-1){st="Elutasítva";}
+                else st="Függőben";
+                oblist.add(new tablaLista(app2.getString("a.ID"),app2.getString("i.name"),app2.getString("i.city"),st));
             }
             while (app3.next())
             {
-                if (app3.getInt("accepted")==1) elf3=false;
-                oblist.add(new tablaLista(app3.getString("a.ID"),app3.getString("i.name"),app3.getString("i.city")));
+                if (app3.getInt("accepted")==1){ elf3=false; st="Elfogadva";}
+                else if (app3.getInt("accepted")==-1){st="Elutasítva";}
+                else st="Függőben";
+                oblist.add(new tablaLista(app3.getString("a.ID"),app3.getString("i.name"),app3.getString("i.city"),st));
             }
             jelentkezesekSzama=oblist.size();
 
@@ -136,6 +154,7 @@ public class Jelentkezes extends OpenFunctions implements Initializable {
         jelentkezesID.setCellValueFactory(new PropertyValueFactory<>("id"));
         jelEgyetem.setCellValueFactory(new PropertyValueFactory<>("egyetem"));
         jelVaros.setCellValueFactory(new PropertyValueFactory<>("varos"));
+        jelStatusz.setCellValueFactory(new PropertyValueFactory<>("statusz"));
 
         if (oblist.size()>0)
         {
@@ -146,16 +165,27 @@ public class Jelentkezes extends OpenFunctions implements Initializable {
 
 
     public void newApp(ActionEvent actionEvent) throws IOException {
-        if (jelentkezesekSzama<3)
-        {
-            if (elf1 && elf2 && elf3) {
-                JelentkezesiLap.megnyit(actionEvent);
-            }else {
-                hibauzenet.setText("Már van elfogadott jelentkezésed.");
-            }
-        }else{
-            hibauzenet.setText("A jelentkezéseid száma elérte a maximumot.");
+
+        boolean szemelyesadatok=true;
+
+        try {
+            ResultSet rs=con.createStatement().executeQuery("SELECT * FROM students WHERE neptun='"+LoginController.getUsername()+"'");
+            if (!rs.next()) szemelyesadatok=false;
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
+
+        if (szemelyesadatok) {
+            if (jelentkezesekSzama < 3) {
+                if (elf1 && elf2 && elf3) {
+                    JelentkezesiLap.megnyit(actionEvent);
+                } else {
+                    hibauzenet.setText("Már van elfogadott jelentkezésed.");
+                }
+            } else {
+                hibauzenet.setText("A jelentkezéseid száma elérte a maximumot.");
+            }
+        }else hibauzenet.setText("Add meg a személyes adataid!");
     }
 
     public void delete(ActionEvent actionEvent) throws SQLException {
@@ -188,13 +218,18 @@ public class Jelentkezes extends OpenFunctions implements Initializable {
 
 
 
-    public void reszletek(ActionEvent actionEvent) throws Exception {
-        selected_ID=Integer.parseInt(table.getSelectionModel().getSelectedItem().id);
-        selected_Varos=table.getSelectionModel().getSelectedItem().varos;
-        selected_Egyetem=table.getSelectionModel().getSelectedItem().egyetem;
+    public void reszletek(ActionEvent actionEvent) {
+        try {
+            selected_ID = Integer.parseInt(table.getSelectionModel().getSelectedItem().id);
+            selected_Varos = table.getSelectionModel().getSelectedItem().varos;
+            selected_Egyetem = table.getSelectionModel().getSelectedItem().egyetem;
 
-        if (selected_ID!=0)
-        reszletekOpen(actionEvent);
+            if (selected_ID != 0)
+                reszletekOpen(actionEvent);
+        }catch (Exception ex)
+        {
+
+        }
     }
 
 

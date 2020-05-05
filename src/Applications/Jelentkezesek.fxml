@@ -26,8 +26,8 @@
         <Button layoutX="604.0" layoutY="300.0" mnemonicParsing="false" onAction="#Reject" prefHeight="51.0" prefWidth="70.0" text="Elutasít" />
         <RadioButton fx:id="rb1" layoutX="594.0" layoutY="125.0" mnemonicParsing="false" text="Jelentkezés 1" textFill="WHITE">
             <toggleGroup>
-                <ToggleGroup fx:id="group1" />
-            </toggleGroup>
+            <ToggleGroup fx:id="group1" />
+        </toggleGroup>
         </RadioButton>
         <RadioButton fx:id="rb2" layoutX="594.0" layoutY="150.0" mnemonicParsing="false" text="Jelentkezés 2" textFill="WHITE" toggleGroup="$group1" />
         <RadioButton fx:id="rb3" layoutX="594.0" layoutY="175.0" mnemonicParsing="false" text="Jelentkezés 3" textFill="WHITE" toggleGroup="$group1" />

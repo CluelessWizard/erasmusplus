@@ -59,7 +59,7 @@ public class BovebbInfoController implements Initializable {
 
         try {
             con=app.dbconnection.getConn();
-            rs=con.createStatement().executeQuery("select * from students s JOIN users u ON u.neptun=s.neptun");
+            rs=con.createStatement().executeQuery("select * from students s JOIN users u ON u.neptun=s.neptun JOIN degrees d on d.ID=s.degree");
 
             adatok();
 
@@ -72,11 +72,11 @@ public class BovebbInfoController implements Initializable {
                 szulnev.setText(s.getSzulnev());
                 neptun.setText(s.getNeptun());
                 szak.setText(s.getSzak());
-                if (s.getFokozat() == "1") {
+                if (s.getFokozat().equals("1")) {
                     fokozat.setText("Bsc");
-                } else if (s.getFokozat() == "2") {
+                } else if (s.getFokozat().equals("2")) {
                     fokozat.setText("Msc");
-                } else if (s.getFokozat() == "3") fokozat.setText("Phd");
+                } else if (s.getFokozat().equals("3")) fokozat.setText("Phd");
                 szuldate.setText(s.getSzuldate());
                 szulhely.setText(s.getSzulhely());
                 telefon.setText(s.getTelefon());
@@ -94,7 +94,7 @@ public class BovebbInfoController implements Initializable {
         while (rs.next()) {
             lista.add(new StudentDetails(rs.getString("name"),
                     rs.getString("neptun"),
-                    rs.getString("degree"),
+                    rs.getString("d.name"),
                     rs.getString("LevelOfStudy"),
                     rs.getString("birthday"),
                     rs.getString("birthplace"),

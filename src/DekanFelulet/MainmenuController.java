@@ -1,6 +1,5 @@
-package HallgatoFelulet;
+package DekanFelulet;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -13,13 +12,24 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class StudentMain extends OpenFunctions implements Initializable {
+public class MainmenuController extends FeluletValtas implements Initializable {
 
     @FXML
     javafx.scene.web.WebView WebView;
 
-    public static void megnyit(ActionEvent actionEvent) throws IOException {
-        Parent p = FXMLLoader.load(StudentMain.class.getResource("StudentMain.fxml"));
+    public static void megnyit(javafx.event.ActionEvent actionEvent) throws IOException {
+        Parent p = FXMLLoader.load(MainmenuController.class.getResource("../DekanFelulet/mainmenu.fxml"));
+        Scene s = new Scene(p);
+
+        //stage információ
+        Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+
+        window.setScene(s);
+        window.show();
+    }
+
+    public void hallgatokmegnyit(javafx.event.ActionEvent actionEvent) throws IOException {
+        Parent p = FXMLLoader.load(getClass().getResource("../DekanFelulet/Listazas.fxml"));
         Scene s = new Scene(p);
 
         //stage információ
@@ -33,4 +43,5 @@ public class StudentMain extends OpenFunctions implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         WebView.getEngine().load(getClass().getResource("../MainMenu/ErasmusMainMenu.html").toString());
     }
+
 }

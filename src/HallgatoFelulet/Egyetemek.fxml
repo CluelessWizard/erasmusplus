@@ -14,8 +14,28 @@
                 <Font name="Arial Black" size="18.0" />
             </font>
         </Label>
-        <Button layoutX="626.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="97.0" stylesheets="@../StyleResources/gombstilus.css" text="Kijelentkezés" textFill="WHITE" onAction="#kijelentkezes"/>
+        <Button layoutX="626.0" mnemonicParsing="false" onAction="#kijelentkezes" prefHeight="34.0" prefWidth="97.0" stylesheets="@../StyleResources/gombstilus.css" text="Kijelentkezés" textFill="WHITE" />
         <Button layoutX="483.0" mnemonicParsing="false" onAction="#adatokOpen" prefHeight="34.0" prefWidth="130.0" stylesheets="@../StyleResources/gombstilus.css" text="Személyes adatok" textFill="WHITE" />
         <Button layoutX="291.0" mnemonicParsing="false" onAction="#ertekelesOpen" prefHeight="34.0" prefWidth="97.0" stylesheets="@../StyleResources/gombstilus.css" text="Értékelés" textFill="WHITE" />
+      <TableView fx:id="table" layoutX="17.0" layoutY="161.0" prefHeight="200.0" prefWidth="693.0" stylesheets="@../StyleResources/lista.css">
+        <columns>
+          <TableColumn fx:id="egyetem" editable="false" prefWidth="123.0" text="Egyetem" />
+          <TableColumn fx:id="varos" editable="false" prefWidth="117.0" text="Város" />
+            <TableColumn fx:id="homerseklet" editable="false" prefWidth="90.0" text="Hőmérséklet" />
+            <TableColumn fx:id="koltseg" editable="false" prefWidth="63.0" text="Költség*" />
+            <TableColumn fx:id="latvanyossag" editable="false" prefWidth="99.0" text="Látványosság*" />
+            <TableColumn fx:id="szinvonal" editable="false" prefWidth="89.0" text="Színvonal*" />
+            <TableColumn fx:id="ertekeles" editable="false" prefWidth="111.0" text="Értékelések száma" />
+        </columns>
+      </TableView>
+      <Label layoutX="22.0" layoutY="96.0" prefHeight="20.0" prefWidth="679.0" text="Az alábbi táblázatban a csillaggal jelölt értékek más hallgatók értékeléseinek átlaga. Ez a skála 1-10-ig terjed." textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Label>
+      <Label layoutX="22.0" layoutY="123.0" prefHeight="19.0" prefWidth="559.0" text="Ezek az értékelések teljesen szubjektívek, és nem feltétlenül tükrözik a valóságot" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
     </children>
 </Pane>

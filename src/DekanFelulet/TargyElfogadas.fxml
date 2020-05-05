@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane id="mainmenu" fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="722.0" style="-fx-background-color: #262626;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DekanFelulet.TargyElfogadas">
+    <children>
+      <ScrollPane fx:id="spane" hbarPolicy="NEVER" layoutX="1.0" layoutY="36.0" prefHeight="366.0" prefWidth="722.0" style="-fx-background-color: #262626;">
+         <content>
+            <AnchorPane fx:id="anchpane" prefHeight="764.0" prefWidth="723.0" style="-fx-background-color: #262626;">
+               <children>
+                  <Label layoutX="222.0" layoutY="136.0" text="Név" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="374.0" layoutY="136.0" text="Kredit" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="tf1" layoutX="164.0" layoutY="185.0" prefHeight="25.0" prefWidth="165.0" />
+                  <RadioButton fx:id="t1k" layoutX="465.0" layoutY="189.0" mnemonicParsing="false"><toggleGroup>
+                  <ToggleGroup fx:id="group1" />
+               </toggleGroup>
+                  </RadioButton>
+                  <Label layoutX="78.0" layoutY="190.0" text="Tárgy 1:" textFill="WHITE" />
+                  <Label layoutX="509.0" layoutY="136.0" text="Elfogadás" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label depthTest="ENABLE" layoutX="552.0" layoutY="155.0" mnemonicParsing="true" prefHeight="17.0" prefWidth="115.0" text="Szabadon választott" textAlignment="JUSTIFY" textFill="WHITE" />
+                  <Label layoutX="450.0" layoutY="155.0" text="Kötelező" textFill="WHITE" />
+                  <RadioButton fx:id="t1s" layoutX="602.0" layoutY="189.0" mnemonicParsing="false" toggleGroup="$group1" />
+
+                  <Label layoutX="78.0" layoutY="219.0" text="Tárgy 2:" textFill="WHITE" />
+                  <TextField fx:id="tf2" layoutX="164.0" layoutY="215.0" prefHeight="25.0" prefWidth="165.0" />
+                  <TextField fx:id="tf3" layoutX="164.0" layoutY="245.0" prefHeight="25.0" prefWidth="165.0" />
+                  <TextField fx:id="tf5" layoutX="164.0" layoutY="305.0" prefHeight="25.0" prefWidth="165.0" />
+                  <TextField fx:id="tf4" layoutX="164.0" layoutY="275.0" prefHeight="25.0" prefWidth="165.0" />
+                  <TextField fx:id="tf6" layoutX="164.0" layoutY="335.0" prefHeight="25.0" prefWidth="165.0" />
+                  <TextField fx:id="tf7" layoutX="164.0" layoutY="365.0" prefHeight="25.0" prefWidth="165.0" />
+                  <TextField fx:id="tf8" layoutX="164.0" layoutY="395.0" prefHeight="25.0" prefWidth="165.0" />
+                  <TextField fx:id="tf9" layoutX="164.0" layoutY="425.0" prefHeight="25.0" prefWidth="165.0" />
+                  <TextField fx:id="tf10" layoutX="164.0" layoutY="455.0" prefHeight="25.0" prefWidth="165.0" />
+                  <Label fx:id="keresUzenet" layoutX="248.0" layoutY="97.0" textFill="RED">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Label>
+                  <Label layoutX="78.0" layoutY="249.0" text="Tárgy 3:" textFill="WHITE" />
+                  <Label layoutX="78.0" layoutY="279.0" text="Tárgy 4:" textFill="WHITE" />
+                  <Label layoutX="78.0" layoutY="309.0" text="Tárgy 5" textFill="WHITE" />
+                  <Label layoutX="78.0" layoutY="339.0" text="Tárgy 6:" textFill="WHITE" />
+                  <Label layoutX="78.0" layoutY="369.0" text="Tárgy 7:" textFill="WHITE" />
+                  <Label layoutX="78.0" layoutY="399.0" text="Tárgy 8:" textFill="WHITE" />
+                  <Label layoutX="78.0" layoutY="429.0" text="Tárgy 9:" textFill="WHITE" />
+                  <Label layoutX="78.0" layoutY="459.0" prefHeight="17.0" prefWidth="57.0" text="Tárgy 10:" textFill="WHITE" />
+                  <RadioButton fx:id="t2k" layoutX="465.0" layoutY="219.0" mnemonicParsing="false">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="group2" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="t2s" layoutX="602.0" layoutY="219.0" mnemonicParsing="false" toggleGroup="$group2" />
+                  <RadioButton fx:id="t3k" layoutX="465.0" layoutY="249.0" mnemonicParsing="false">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="group3" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="t3s" layoutX="602.0" layoutY="249.0" mnemonicParsing="false" toggleGroup="$group3" />
+                  <RadioButton fx:id="t4k" layoutX="465.0" layoutY="279.0" mnemonicParsing="false">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="group4" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="t4s" layoutX="602.0" layoutY="279.0" mnemonicParsing="false" toggleGroup="$group4" />
+                  <RadioButton fx:id="t5k" layoutX="465.0" layoutY="309.0" mnemonicParsing="false">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="group5" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="t5s" layoutX="602.0" layoutY="309.0" mnemonicParsing="false" toggleGroup="$group5" />
+                  <RadioButton fx:id="t6k" layoutX="465.0" layoutY="339.0" mnemonicParsing="false">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="group6" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="t6s" layoutX="602.0" layoutY="339.0" mnemonicParsing="false" toggleGroup="$group6" />
+                  <RadioButton fx:id="t7k" layoutX="465.0" layoutY="369.0" mnemonicParsing="false">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="group7" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="t7s" layoutX="602.0" layoutY="369.0" mnemonicParsing="false" toggleGroup="$group7" />
+                  <RadioButton fx:id="t8k" layoutX="465.0" layoutY="399.0" mnemonicParsing="false">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="group8" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="t8s" layoutX="602.0" layoutY="399.0" mnemonicParsing="false" toggleGroup="$group8" />
+                  <RadioButton fx:id="t9k" layoutX="465.0" layoutY="429.0" mnemonicParsing="false">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="group9" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="t9s" layoutX="602.0" layoutY="429.0" mnemonicParsing="false" toggleGroup="$group9" />
+                  <Label layoutX="78.0" layoutY="489.0" prefHeight="17.0" prefWidth="57.0" text="Tárgy 11:" textFill="WHITE" />
+                  <TextField fx:id="tf11" layoutX="164.0" layoutY="485.0" prefHeight="25.0" prefWidth="165.0" />
+                  <TextField fx:id="tf12" layoutX="165.0" layoutY="515.0" prefHeight="25.0" prefWidth="165.0" />
+                  <TextField fx:id="tf13" layoutX="164.0" layoutY="545.0" prefHeight="25.0" prefWidth="165.0" />
+                  <TextField fx:id="tf14" layoutX="164.0" layoutY="575.0" prefHeight="25.0" prefWidth="165.0" />
+                  <TextField fx:id="tf15" layoutX="165.0" layoutY="605.0" prefHeight="25.0" prefWidth="165.0" />
+                  <Label layoutX="78.0" layoutY="519.0" prefHeight="17.0" prefWidth="57.0" text="Tárgy 12:" textFill="WHITE" />
+                  <Label layoutX="78.0" layoutY="549.0" prefHeight="17.0" prefWidth="57.0" text="Tárgy 13:" textFill="WHITE" />
+                  <Label layoutX="78.0" layoutY="579.0" prefHeight="17.0" prefWidth="57.0" text="Tárgy 14:" textFill="WHITE" />
+                  <Label layoutX="78.0" layoutY="609.0" prefHeight="17.0" prefWidth="57.0" text="Tárgy 15:" textFill="WHITE" />
+                  <RadioButton fx:id="t10k" layoutX="465.0" layoutY="459.0" mnemonicParsing="false">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="group10" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="t11k" layoutX="465.0" layoutY="489.0" mnemonicParsing="false">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="group11" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="t12k" layoutX="465.0" layoutY="519.0" mnemonicParsing="false">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="group12" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="t13k" layoutX="465.0" layoutY="549.0" mnemonicParsing="false">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="group13" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="t14k" layoutX="465.0" layoutY="579.0" mnemonicParsing="false">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="group14" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="t15k" layoutX="465.0" layoutY="609.0" mnemonicParsing="false">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="group15" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="t10s" layoutX="602.0" layoutY="459.0" mnemonicParsing="false" toggleGroup="$group10" />
+                  <RadioButton fx:id="t11s" layoutX="602.0" layoutY="489.0" mnemonicParsing="false" toggleGroup="$group11" />
+                  <RadioButton fx:id="t12s" layoutX="602.0" layoutY="519.0" mnemonicParsing="false" toggleGroup="$group12" />
+                  <RadioButton fx:id="t13s" layoutX="602.0" layoutY="549.0" mnemonicParsing="false" toggleGroup="$group13" />
+                  <RadioButton fx:id="t14s" layoutX="602.0" layoutY="579.0" mnemonicParsing="false" toggleGroup="$group14" />
+                  <RadioButton fx:id="t15s" layoutX="602.0" layoutY="609.0" mnemonicParsing="false" toggleGroup="$group15" />
+                  <Button fx:id="elkuldgomb" layoutX="331.0" layoutY="663.0" mnemonicParsing="false" onAction="#elkuld" prefHeight="25.0" prefWidth="86.0" text="Elküld" />
+                  <Label fx:id="uzenet" layoutX="331.0" layoutY="699.0" textFill="#00e42a" />
+                  <TextField fx:id="neptunfield" layoutX="275.0" layoutY="14.0" />
+                  <Label layoutX="182.0" layoutY="18.0" text="Neptun:" textFill="WHITE" />
+                  <Button fx:id="keresgomb" layoutX="467.0" layoutY="14.0" mnemonicParsing="false" onAction="#keres" prefHeight="25.0" prefWidth="57.0" text="Keres" />
+                  <ChoiceBox fx:id="jelentkezesfield" layoutX="275.0" layoutY="52.0" prefWidth="150.0" />
+                  <Label layoutX="182.0" layoutY="56.0" text="Jelentkezések:" textFill="WHITE" />
+                  <Label fx:id="lb" layoutX="387.0" layoutY="189.0" prefHeight="20.0" prefWidth="12.0" textAlignment="CENTER" textFill="#00ff09">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lb1" layoutX="387.0" layoutY="218.0" prefHeight="20.0" prefWidth="12.0" textAlignment="CENTER" textFill="#00ff09">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lb2" layoutX="387.0" layoutY="248.0" prefHeight="20.0" prefWidth="12.0" textAlignment="CENTER" textFill="#00ff09">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lb3" layoutX="387.0" layoutY="278.0" prefHeight="20.0" prefWidth="12.0" textAlignment="CENTER" textFill="#00ff09">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lb4" layoutX="387.0" layoutY="308.0" prefHeight="20.0" prefWidth="12.0" textAlignment="CENTER" textFill="#00ff09">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lb5" layoutX="387.0" layoutY="338.0" prefHeight="20.0" prefWidth="12.0" textAlignment="CENTER" textFill="#00ff09">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lb6" layoutX="387.0" layoutY="368.0" prefHeight="20.0" prefWidth="12.0" textAlignment="CENTER" textFill="#00ff09">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lb7" layoutX="387.0" layoutY="398.0" prefHeight="20.0" prefWidth="12.0" textAlignment="CENTER" textFill="#00ff09">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lb8" layoutX="387.0" layoutY="428.0" prefHeight="20.0" prefWidth="12.0" textAlignment="CENTER" textFill="#00ff09">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lb9" layoutX="387.0" layoutY="458.0" prefHeight="20.0" prefWidth="12.0" textAlignment="CENTER" textFill="#00ff09">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lb10" layoutX="387.0" layoutY="488.0" prefHeight="20.0" prefWidth="12.0" textAlignment="CENTER" textFill="#00ff09">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lb11" layoutX="387.0" layoutY="518.0" prefHeight="20.0" prefWidth="12.0" textAlignment="CENTER" textFill="#00ff09">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lb12" layoutX="387.0" layoutY="548.0" prefHeight="20.0" prefWidth="12.0" textAlignment="CENTER" textFill="#00ff09">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lb13" layoutX="387.0" layoutY="578.0" prefHeight="20.0" prefWidth="12.0" textAlignment="CENTER" textFill="#00ff09">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lb14" layoutX="387.0" layoutY="608.0" prefHeight="20.0" prefWidth="12.0" textAlignment="CENTER" textFill="#00ff09">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+        <Button onAction="#mainmenumegnyit" prefHeight="34.0" prefWidth="97.0" stylesheets="@../StyleResources/gombstilus.css" text="Főoldal" textFill="WHITE" />
+        <Button layoutX="97.0" mnemonicParsing="false" onAction="#hallgatokmegnyit" prefHeight="34.0" prefWidth="97.0" stylesheets="@../StyleResources/gombstilus.css" text="Hallgatók" textFill="WHITE" />
+        <Button layoutX="194.0" mnemonicParsing="false" onAction="#targyakmegnyit" prefHeight="34.0" prefWidth="127.0" stylesheets="@../StyleResources/gombstilus.css" text="Tárgy elfogadás" textFill="WHITE" />
+        <Button layoutX="626.0" mnemonicParsing="false" onAction="#kijelentkezes" prefHeight="34.0" prefWidth="97.0" stylesheets="@../StyleResources/gombstilus.css" text="Kijelentkezés" textFill="WHITE" />
+    </children>
+</Pane>
