@@ -51,7 +51,7 @@
           <PasswordField fx:id="jelszo1" prefHeight="25.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
           <PasswordField fx:id="jelszo2" prefHeight="25.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
           <Button mnemonicParsing="false" onAction="#save" prefHeight="48.0" prefWidth="108.0" text="Mentés" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
-          <Button mnemonicParsing="false" onAction="#kilep" prefHeight="48.0" prefWidth="108.0" text="Mégse" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+          <Button mnemonicParsing="false" onAction="#megse" prefHeight="48.0" prefWidth="108.0" text="Mégse" GridPane.columnIndex="1" GridPane.rowIndex="6" />
           <Label fx:id="uzenet" textAlignment="CENTER" textFill="WHITE" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.rowIndex="5">
               <font>
                   <Font name="Arial Black" size="13.0" />
